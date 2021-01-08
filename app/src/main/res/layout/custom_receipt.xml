@@ -24,7 +24,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Mã hóa đơn: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Thời gian: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -72,7 +72,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Số lượng món: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -106,7 +106,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Tổng tiền: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -140,7 +140,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Trạng thái: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <Button
