@@ -1,8 +1,10 @@
-package com.example.coffeebakeryadmin;
+package com.example.coffeebakeryadmin.ListReport;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.coffeebakeryadmin.R;
 
 public class ReportActivity extends AppCompatActivity {
 

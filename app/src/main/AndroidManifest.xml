@@ -16,9 +16,9 @@
         <activity android:name=".List_Product.DetailProductActivity" />
         <activity android:name=".List_Product.AddProductActivity" />
         <activity android:name=".List_Product.ListProductActivity" />
-        <activity android:name=".ReportActivity"></activity>
-        <activity android:name=".DetailCustomerActivity" />
-        <activity android:name=".ListCustomerActivity" />
+        <activity android:name=".ListReport.ReportActivity"></activity>
+        <activity android:name=".ListDetailCustomer.DetailCustomerActivity" />
+        <activity android:name=".ListCustomer.ListCustomerActivity" />
 
         <activity android:name=".AdminActivity">
             <intent-filter>

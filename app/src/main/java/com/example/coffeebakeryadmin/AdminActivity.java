@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.coffeebakeryadmin.ListCustomer.ListCustomerActivity;
 import com.example.coffeebakeryadmin.List_Product.ListProductActivity;
 import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
 import com.google.firebase.database.DatabaseReference;
@@ -15,9 +16,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminActivity extends AppCompatActivity {
 
-    CardView cv_dshd, cv_cd, cv_bctk;
+    CardView cv_dshd, cv_cd, cv_bctk, cv_dskh;
     LinearLayout cv_dssp;
     public static DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class AdminActivity extends AppCompatActivity {
         cv_dssp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ListProductActivity.class);
+                intent = new Intent(v.getContext(), ListProductActivity.class);
                 startActivity(intent);
             }
         });
@@ -36,10 +38,19 @@ public class AdminActivity extends AppCompatActivity {
         cv_dshd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ListReceiptActivity.class);
+                intent = new Intent(v.getContext(), ListReceiptActivity.class);
                 startActivity(intent);
             }
         });
+
+        cv_dskh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(v.getContext(), ListCustomerActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void AnhXa() {
@@ -47,5 +58,6 @@ public class AdminActivity extends AppCompatActivity {
         cv_dshd = (CardView) findViewById(R.id.cv_DSHD);
         cv_cd = (CardView) findViewById(R.id.cv_CD);
         cv_bctk = (CardView) findViewById(R.id.cv_BCTK);
+        cv_dskh = (CardView) findViewById(R.id.cv_DSKH);
     }
 }

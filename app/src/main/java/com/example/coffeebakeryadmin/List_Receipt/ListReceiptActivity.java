@@ -5,7 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import com.example.coffeebakeryadmin.AdminActivity;
 import com.example.coffeebakeryadmin.R;
 import java.util.ArrayList;
 import static com.example.coffeebakeryadmin.AdminActivity.mData;
@@ -16,7 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 public class ListReceiptActivity extends AppCompatActivity {
-
+    ImageView back;
     RecyclerView recyclerView;
     RecieptAdapter adapter;
     ArrayList<Receipt> listReceipt;
@@ -24,8 +30,8 @@ public class ListReceiptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_receipt);
+        AnhXa();
         listReceipt = new ArrayList<Receipt>();
-        recyclerView = (RecyclerView) findViewById(R.id.list_receipt);
         mData.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,6 +55,18 @@ public class ListReceiptActivity extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListReceiptActivity.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
 
+    }
+
+    private void AnhXa() {
+        back = (ImageView) findViewById(R.id.btn_BackReceipt);
+        recyclerView = (RecyclerView) findViewById(R.id.list_receipt);
     }
 }

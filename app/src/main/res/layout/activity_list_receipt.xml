@@ -13,7 +13,7 @@
         android:background="@color/white"
         android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_BackReceipt"
             android:layout_width="35dp"
             android:layout_height="35dp"
