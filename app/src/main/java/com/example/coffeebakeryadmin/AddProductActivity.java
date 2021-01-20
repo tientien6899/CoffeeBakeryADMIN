@@ -31,6 +31,9 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 public class AddProductActivity extends AppCompatActivity {
 
@@ -53,6 +56,10 @@ public class AddProductActivity extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String ngay = dateformat.format(calendar.getTime());
 
         mData = FirebaseDatabase.getInstance().getReference();
         AnhXa();
@@ -115,7 +122,6 @@ public class AddProductActivity extends AppCompatActivity {
             }
         });
 
-
         luusp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,6 +134,7 @@ public class AddProductActivity extends AppCompatActivity {
                 sp.giaL = giaL.getText().toString().trim();
                 sp.giaKM = giaKM.getText().toString().trim();
                 sp.mota = mota.getText().toString().trim();
+                sp.ngaydang = ngay;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setCancelable(true);

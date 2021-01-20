@@ -15,11 +15,11 @@
 
         <ImageButton
             android:id="@+id/img_BackDSSP"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
+            android:background="@drawable/back" />
 
         <TextView
             android:layout_width="match_parent"
@@ -33,11 +33,11 @@
 
         <ImageButton
             android:id="@+id/btn_Datlai"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_outline_refresh_24" />
+            android:background="@drawable/reset" />
     </LinearLayout>
 
     <ScrollView

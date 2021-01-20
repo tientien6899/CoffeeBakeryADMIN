@@ -28,6 +28,9 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class DetailProductActivity extends AppCompatActivity {
 
     EditText ten, ma, s, m, l, km, mt;
@@ -50,6 +53,10 @@ public class DetailProductActivity extends AppCompatActivity {
         mData = FirebaseDatabase.getInstance().getReference();
 
         AnhXa();
+
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String ngay = dateformat.format(calendar.getTime());
 
         Intent intent = getIntent();
         String dmuc = intent.getStringExtra("DANHMUC");
@@ -118,6 +125,7 @@ public class DetailProductActivity extends AppCompatActivity {
                             sp.giaL = l.getText().toString().trim();
                             sp.giaKM = km.getText().toString().trim();
                             sp.mota = mt.getText().toString().trim();
+                            sp.ngaydang = ngay;
 
                             StorageReference ref1 = storageReference.child("Image").child(sp.getDanhmuc()).child(sp.getTensp() + ".png");
                             final ProgressDialog progressDialog= new ProgressDialog(DetailProductActivity.this);
@@ -166,7 +174,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setTitle("Cảnh báo");
                 builder.setMessage("Bạn thật sự muốn xóa sản phẩm này ?");
-                builder.setNegativeButton("Đồng ý", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
@@ -177,12 +185,12 @@ public class DetailProductActivity extends AppCompatActivity {
                         StorageReference ref = storageReference.child("Image").child(dmuc).child(tenSP + ".png");
                         ref.delete();
 
-                        Toast.makeText(DetailProductActivity.this, "Xóa thông tin thành công !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailProductActivity.this, "Xóa sản phẩm thành công !", Toast.LENGTH_SHORT).show();
                         Intent intent2 = new Intent(DetailProductActivity.this, ListProductActivity.class);
                         startActivity(intent2);
                     }
                 });
-                builder.setPositiveButton("Quay lại", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();

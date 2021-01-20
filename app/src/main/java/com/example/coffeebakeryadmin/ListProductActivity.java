@@ -23,7 +23,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ListProductActivity extends AppCompatActivity {
@@ -41,6 +43,11 @@ public class ListProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_product);
 
         AnhXa();
+
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String ngay = dateformat.format(calendar.getTime());
+
         mData = FirebaseDatabase.getInstance().getReference();
         danhsach.setLayoutManager(new LinearLayoutManager(this));
 
@@ -60,7 +67,8 @@ public class ListProductActivity extends AppCompatActivity {
                                         snapshot.child("giaM").getValue().toString(),
                                         snapshot.child("giaL").getValue().toString(),
                                         snapshot.child("giaKM").getValue().toString(),
-                                        snapshot.child("mota").getValue().toString());
+                                        snapshot.child("mota").getValue().toString(),
+                                        snapshot.child("ngaydang").getValue().toString());
                             }
                         })
                         .build();
@@ -87,7 +95,7 @@ public class ListProductActivity extends AppCompatActivity {
     private void AnhXa() {
         back = (ImageButton) findViewById(R.id.btn_BackHome);
         add = (ImageButton) findViewById(R.id.btn_AddProduct);
-        timkiem = (EditText) findViewById(R.id.timkiem_sanpham);
+        timkiem = (EditText) findViewById(R.id.txt_timkiemSP);
         danhsach = (RecyclerView) findViewById(R.id.rv_ListProduct);
     }
 
