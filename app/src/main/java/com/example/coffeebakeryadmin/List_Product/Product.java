@@ -1,4 +1,4 @@
-package com.example.coffeebakeryadmin;
+package com.example.coffeebakeryadmin.List_Product;
 
 public class Product {
     String tensp;

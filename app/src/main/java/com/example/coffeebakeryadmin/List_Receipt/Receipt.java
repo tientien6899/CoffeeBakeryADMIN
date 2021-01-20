@@ -1,17 +1,21 @@
-package com.example.coffeebakeryadmin;
+package com.example.coffeebakeryadmin.List_Receipt;
 
 public class Receipt {
-    String madon, magh, ngaydat, tongtien, trangthai;
+    String madon;
+    String ngaydat;
+    String tongtien;
+    String trangthai;
+    String nguoidung;
 
     public Receipt() {
     }
 
-    public Receipt(String madon, String magh, String ngaydat, String tongtien, String trangthai) {
+    public Receipt(String madon, String ngaydat, String tongtien, String trangthai, String nguoidung) {
         this.madon = madon;
-        this.magh = magh;
         this.ngaydat = ngaydat;
         this.tongtien = tongtien;
         this.trangthai = trangthai;
+        this.nguoidung = nguoidung;
     }
 
     public String getMadon() {
@@ -20,14 +24,6 @@ public class Receipt {
 
     public void setMadon(String madon) {
         this.madon = madon;
-    }
-
-    public String getMagh() {
-        return magh;
-    }
-
-    public void setMagh(String magh) {
-        this.magh = magh;
     }
 
     public String getNgaydat() {
@@ -52,5 +48,12 @@ public class Receipt {
 
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
+    }
+    public String getNguoidung() {
+        return nguoidung;
+    }
+
+    public void setNguoidung(String nguoidung) {
+        this.nguoidung = nguoidung;
     }
 }

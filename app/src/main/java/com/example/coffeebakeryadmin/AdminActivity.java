@@ -8,12 +8,16 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import java.util.List;
+import com.example.coffeebakeryadmin.List_Product.ListProductActivity;
+import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminActivity extends AppCompatActivity {
 
     CardView cv_dshd, cv_cd, cv_bctk;
     LinearLayout cv_dssp;
+    public static DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
