@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/hinhanh_sanpham"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
+                android:layout_width="70dp"
+                android:layout_height="70dp" />
 
             <TextView
                 android:id="@+id/tensanpham_sanpham"
@@ -37,7 +37,7 @@
                 android:gravity="center"
                 android:hint="Trà đào đá xay"
                 android:textColor="#56c596"
-                android:textSize="18dp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -57,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="S"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="M"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="L"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="KM"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:hint="20000"
                     android:textColor="#56c596"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -116,7 +116,7 @@
                     android:layout_marginTop="10dp"
                     android:hint="30000"
                     android:textColor="#56c596"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -126,7 +126,7 @@
                     android:layout_marginTop="10dp"
                     android:hint="40000"
                     android:textColor="#56c596"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -136,7 +136,7 @@
                     android:layout_marginTop="10dp"
                     android:hint="50"
                     android:textColor="#FF414D"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
             </LinearLayout>

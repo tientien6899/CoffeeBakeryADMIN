@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/background"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageButton
@@ -22,13 +22,13 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="Danh sách sản phẩm"
-            android:textColor="@color/white"
-            android:textSize="27sp"/>
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btn_AddProduct"
@@ -42,18 +42,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_outline_search_24"
-            android:layout_gravity="center"/>
+            android:id="@+id/filter"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_outline_filter_alt_24" />
+
         <EditText
-            android:id="@+id/timkiem_sanpham"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Tìm kiếm ..."/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/search_bg"
+            android:drawableRight="@drawable/ic_outline_search_24"
+            android:hint="Tìm kiếm sản phẩm"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#7e7e7e"
+            android:textSize="12sp" />
+
     </LinearLayout>
 
     <LinearLayout

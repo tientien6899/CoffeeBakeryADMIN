@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".List_Receipt.ListReceiptActivity">
+    tools:context=".ListCustomerActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/btn_BackReceipt"
+            android:id="@+id/btn_BackCustomer"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
@@ -24,14 +23,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Danh sách hóa đơn"
+            android:layout_weight="1"
             android:gravity="center"
+            android:text="Danh sách khách hàng"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="17sp"
-            android:layout_weight="1"/>
+            android:textStyle="bold" />
 
         <ImageButton
+            android:id="@+id/btn_AddProduct"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
@@ -41,14 +41,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_bg"
+            android:drawableRight="@drawable/ic_outline_search_24"
+            android:hint="Tìm kiếm khách hàng"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="#7e7e7e"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_receipt"
+            android:id="@+id/list_customer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp" />
 
     </LinearLayout>
 

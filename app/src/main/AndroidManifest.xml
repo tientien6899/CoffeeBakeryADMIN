@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".List_Detail_Receipt.DetailReceiptActivity"></activity>
         <activity android:name=".List_Receipt.ListReceiptActivity" />
         <activity android:name=".List_Post.AddPostActivity" />
@@ -16,6 +17,18 @@
         <activity android:name=".List_Product.DetailProductActivity" />
         <activity android:name=".List_Product.AddProductActivity" />
         <activity android:name=".List_Product.ListProductActivity" />
+=======
+        <activity android:name=".ReportActivity"></activity>
+        <activity android:name=".DetailCustomerActivity" />
+        <activity android:name=".ListCustomerActivity" />
+        <activity android:name=".DetailReceiptActivity" />
+        <activity android:name=".ListReceiptActivity" />
+        <activity android:name=".AddPostActivity" />
+        <activity android:name=".ListPostActivity" />
+        <activity android:name=".DetailProductActivity" />
+        <activity android:name=".AddProductActivity" />
+        <activity android:name=".ListProductActivity" />
+>>>>>>> e8acd9529248bcedd418a14941ed04dc5303c58d
         <activity android:name=".AdminActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

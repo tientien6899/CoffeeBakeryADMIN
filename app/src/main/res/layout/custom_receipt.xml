@@ -24,7 +24,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Mã hóa đơn: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -49,7 +49,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Thời gian: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -73,8 +73,13 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:gravity="center|left"
+<<<<<<< HEAD
                 android:text="Tổng tiền: "
                 android:textSize="16dp"
+=======
+                android:text="Số lượng món: "
+                android:textSize="17dp"
+>>>>>>> e8acd9529248bcedd418a14941ed04dc5303c58d
                 android:textStyle="bold" />
 
             <TextView
@@ -108,8 +113,13 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:gravity="center|left"
+<<<<<<< HEAD
                 android:text="Khách hàng: "
                 android:textSize="16dp"
+=======
+                android:text="Tổng tiền: "
+                android:textSize="17dp"
+>>>>>>> e8acd9529248bcedd418a14941ed04dc5303c58d
                 android:textStyle="bold" />
 
             <TextView
@@ -136,7 +146,7 @@
                 android:layout_margin="5dp"
                 android:gravity="center|left"
                 android:text="Trạng thái: "
-                android:textSize="16dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
