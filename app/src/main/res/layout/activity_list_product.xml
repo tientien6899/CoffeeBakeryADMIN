@@ -53,6 +53,7 @@
             android:src="@drawable/ic_outline_filter_alt_24" />
 
         <EditText
+            android:id="@+id/timkiem_sanpham"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
