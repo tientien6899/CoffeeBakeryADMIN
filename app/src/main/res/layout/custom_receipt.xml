@@ -28,6 +28,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txt_MaHoaDon"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -52,6 +53,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txt_ThoiGianDat"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -71,45 +73,12 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:gravity="center|left"
-                android:text="Số lượng món: "
-                android:textSize="17dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
-                android:hint="9"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center|left"
-                android:text="món"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
                 android:text="Tổng tiền: "
-                android:textSize="17dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/txt_TongTien"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -131,7 +100,34 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center|left"
+                android:text="Khách hàng: "
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_TenKhachHang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center|left"
+                android:text="ABCĐSD"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
             android:orientation="horizontal">
 
             <TextView
@@ -143,28 +139,17 @@
                 android:textSize="17dp"
                 android:textStyle="bold" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@color/background"
-                android:text="Xác nhận"
-                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/txt_TrangThai"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center|left"
+                android:text="Dang xu ly"
+                android:textSize="16dp"
+                android:textStyle="bold" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="3dp"
-                android:background="@color/red"
-                android:text="Hủy đơn"
-                android:textColor="@color/white" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@color/black"
-                android:text="Hoàn tác"
-                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

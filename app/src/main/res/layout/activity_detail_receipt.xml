@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".DetailReceiptActivity">
+    tools:context=".List_Detail_Receipt.DetailReceiptActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -302,7 +302,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
                         android:layout_marginBottom="10dp"
-                        android:hint="20.000"
+                        android:text="0"
                         android:textSize="15dp" />
 
                     <TextView
@@ -336,7 +336,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="3dp"
                         android:layout_marginBottom="10dp"
-                        android:hint="- 20.000"
+                        android:text="0"
                         android:textSize="15dp" />
 
                     <TextView
@@ -389,8 +389,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_chapnhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Xác nhận"/>
 
+                <Button
+                    android:id="@+id/btn_huybo"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Hủy bỏ"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -1,14 +1,16 @@
-package com.example.coffeebakeryadmin;
+package com.example.coffeebakeryadmin.List_Post;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ReportActivity extends AppCompatActivity {
+import com.example.coffeebakeryadmin.R;
+
+public class ListPostActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_list_post);
     }
 }
