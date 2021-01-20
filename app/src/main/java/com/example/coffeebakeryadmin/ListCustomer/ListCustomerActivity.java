@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.example.coffeebakeryadmin.AdminActivity;
 import com.example.coffeebakeryadmin.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
@@ -18,7 +22,7 @@ public class ListCustomerActivity extends AppCompatActivity {
     RecyclerView danhsach;
     CustomerAdapter adapter;
     private DatabaseReference danhsachRef, mData;
-
+    ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +49,19 @@ public class ListCustomerActivity extends AppCompatActivity {
                         .build();
         adapter = new CustomerAdapter(options);
         danhsach.setAdapter(adapter);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListCustomerActivity.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
     private void AnhXa() {
         danhsach = (RecyclerView) findViewById(R.id.list_customer);
+        back = (ImageView) findViewById(R.id.btn_BackCustomer);
     }
 
     @Override
