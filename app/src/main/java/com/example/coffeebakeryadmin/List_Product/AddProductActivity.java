@@ -38,12 +38,10 @@ import java.util.Calendar;
 
 public class AddProductActivity extends AppCompatActivity {
 
-    ImageView hinhanhsp;
+    ImageView hinhanhsp, luusp, backsp ;
     ImageButton backhome;
     TextView danhmucsp;
     EditText tensp, masp, giaS, giaM, giaL, giaKM, mota;
-    Button luusp;
-    ImageButton datlai;
     Intent intent;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -105,7 +103,7 @@ public class AddProductActivity extends AppCompatActivity {
             }
         });
 
-        backhome.setOnClickListener(new View.OnClickListener() {
+        backsp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 intent = new Intent(AddProductActivity.this, ListProductActivity.class);
@@ -245,7 +243,7 @@ public class AddProductActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        backhome = (ImageButton) findViewById(R.id.img_BackDSSP);
+        backsp = (ImageView) findViewById(R.id.img_BackDSSP);
         danhmucsp = (TextView) findViewById(R.id.txt_DanhmucSP);
         tensp = (EditText) findViewById(R.id.edt_TenSP);
         masp = (EditText) findViewById(R.id.edt_MaSP);
@@ -255,7 +253,6 @@ public class AddProductActivity extends AppCompatActivity {
         giaKM = (EditText) findViewById(R.id.edt_GiaKM);
         mota = (EditText) findViewById(R.id.edt_MotaSP);
         hinhanhsp = (ImageView) findViewById(R.id.img_HinhanhSP);
-        datlai = (ImageButton) findViewById(R.id.btn_Datlai);
-        luusp = (Button) findViewById(R.id.btn_LuuSP);
+        luusp = (ImageView) findViewById(R.id.btn_LuuSP);
     }
 }
