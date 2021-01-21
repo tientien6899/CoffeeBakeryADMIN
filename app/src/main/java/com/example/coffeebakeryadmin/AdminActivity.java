@@ -41,7 +41,7 @@ public class AdminActivity extends AppCompatActivity {
         img_tttk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(v.getContext(), ListReceiptActivity.class);
+                intent = new Intent(AdminActivity.this, AccountActivity.class);
                 startActivity(intent);
             }
         });
@@ -83,7 +83,7 @@ public class AdminActivity extends AppCompatActivity {
         cv_bqc = (LinearLayout) findViewById(R.id.cv_BQC);
         cv_ttch = (LinearLayout) findViewById(R.id.cv_TTCH);
         cv_bctk = (LinearLayout) findViewById(R.id.cv_BCTK);
-        img_tttk = findViewById(R.id.img_TTTK);
+        img_tttk = (ImageView) findViewById(R.id.img_TTTK);
         img_logout = findViewById(R.id.img_Logout);
         txt_tenadmin = findViewById(R.id.txt_TenAdmin);
     }

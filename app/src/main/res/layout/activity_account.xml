@@ -16,8 +16,6 @@
             android:id="@+id/img_BackTTTK"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:background="@drawable/back" />
@@ -37,8 +35,6 @@
             android:id="@+id/img_SaveTTTK"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:background="@drawable/check" />

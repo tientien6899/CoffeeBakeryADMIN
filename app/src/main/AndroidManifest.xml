@@ -4,12 +4,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_foreground"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".AccountActivity" />
         <activity android:name=".List_Detail_Receipt.DetailReceiptActivity"></activity>
         <activity android:name=".List_Receipt.ListReceiptActivity" />
         <activity android:name=".List_Post.AddPostActivity" />
