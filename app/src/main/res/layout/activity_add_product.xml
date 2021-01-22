@@ -54,7 +54,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:background="@drawable/add_image" />
+                android:background="@drawable/add_image_product" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -229,7 +229,7 @@
             <EditText
                 android:id="@+id/edt_MotaSP"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"

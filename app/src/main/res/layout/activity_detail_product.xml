@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:background="@color/white"
         android:orientation="horizontal">
 
@@ -18,26 +18,26 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/back" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Chi tiết sản phẩm"
+            android:layout_weight="1"
             android:gravity="center"
+            android:text="Chi tiết sản phẩm"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:layout_weight="1"  />
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btn_Xoa"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/ic_outline_delete_24" />
+            android:layout_marginRight="20dp"
+            android:background="@drawable/delete" />
     </LinearLayout>
 
     <ScrollView
@@ -52,260 +52,200 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/img_chitietHinhanhSP"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/ic_outline_add_photo_alternate_24" />
+                    android:layout_gravity="center"
+                    android:background="@drawable/add_image_product" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hình ảnh sản phẩm" />
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Danh mục sản phẩm"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_chitietDanhmucSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Chọn danh mục ..."
+                    android:paddingLeft="20dp"
+                    android:paddingTop="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:orientation="vertical">
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Mã sản phẩm"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <EditText
-                        android:id="@+id/edt_chitietMaSP"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon7"
-                        android:background="@android:color/transparent"
-                        android:hint="Mã sản phẩm"
-                        android:inputType="text"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietMaSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập mã sản phẩm ..."
+                    android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon7"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_dialpad_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Tên sản phẩm"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <TextView
-                        android:id="@+id/txt_chitietDanhmucSP"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon6"
-                        android:hint="Danh mục sản phẩm"
-                        android:inputType="text"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietTenSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập tên sản phẩm ..."
+                    android:inputType="text"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon6"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_filter_alt_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Giá size S"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <EditText
-                        android:id="@+id/edt_chitietTenSP"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon"
-                        android:background="@android:color/transparent"
-                        android:hint="Tên sản phẩm"
-                        android:inputType="text"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietGiaS"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập giá size S ..."
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_text_fields_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Giá size M"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <EditText
-                        android:id="@+id/edt_chitietGiaS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon1"
-                        android:background="@android:color/transparent"
-                        android:hint="Giá size S"
-                        android:inputType="number"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietGiaM"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập giá size M ..."
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon1"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_loyalty_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Giá size L"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <EditText
-                        android:id="@+id/edt_chitietGiaM"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon2"
-                        android:background="@android:color/transparent"
-                        android:hint="Giá size M"
-                        android:inputType="number"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietGiaL"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập giá size L ..."
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon2"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_loyalty_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Giá khuyến mãi"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <EditText
-                        android:id="@+id/edt_chitietGiaL"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon3"
-                        android:background="@android:color/transparent"
-                        android:hint="Giá size L"
-                        android:inputType="number"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietGiaKM"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập giá khuyến mãi ..."
+                    android:inputType="number"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon3"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_loyalty_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Mô tả"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
 
-                    <EditText
-                        android:id="@+id/edt_chitietGiaKM"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon4"
-                        android:background="@android:color/transparent"
-                        android:hint="Khuyến mãi"
-                        android:inputType="number"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
+                <EditText
+                    android:id="@+id/edt_chitietMotaSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_textfield"
+                    android:hint="Nhập mô tả sản phẩm ..."
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <ImageView
-                        android:id="@+id/icon4"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_local_offer_24" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/blue_border_rounded_cornwe">
-
-                    <EditText
-                        android:id="@+id/edt_chitietMotaSP"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/icon5"
-                        android:background="@android:color/transparent"
-                        android:hint="Mô tả sản phẩm"
-                        android:inputType="textMultiLine"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/cursor_color"
-                        android:textSize="17sp" />
-
-                    <ImageView
-                        android:id="@+id/icon5"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="17dp"
-                        android:src="@drawable/ic_outline_text_snippet_24" />
-                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -316,12 +256,13 @@
 
                 <Button
                     android:id="@+id/btn_CapnhatSP"
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_background"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_button"
                     android:text="Cập nhật"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

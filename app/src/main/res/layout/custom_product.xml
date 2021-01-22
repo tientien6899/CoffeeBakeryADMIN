@@ -21,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/hinhanh_sanpham"
-                android:layout_width="50dp"
-                android:layout_height="50dp" />
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
 
             <TextView
                 android:id="@+id/tensanpham_sanpham"
@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:hint="Trà đào đá xay"
                 android:textColor="#56c596"
-                android:textSize="14sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
         </LinearLayout>
 

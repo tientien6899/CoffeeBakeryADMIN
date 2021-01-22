@@ -18,7 +18,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/back" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/add" />
     </LinearLayout>
 
@@ -68,7 +68,6 @@
         android:layout_height="300dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-
         android:layout_weight="1"
         android:orientation="vertical">
 

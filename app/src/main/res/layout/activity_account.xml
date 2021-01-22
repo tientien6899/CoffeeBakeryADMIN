@@ -61,7 +61,7 @@
             android:layout_marginTop="20dp"
             android:text="Họ tên"
             android:textColor="@color/black"
-            android:textSize="19dp" />
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/txt_HotenAdmin"
@@ -84,7 +84,7 @@
             android:layout_marginTop="30dp"
             android:text="Email"
             android:textColor="@color/black"
-            android:textSize="19dp" />
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/txt_EmailAdmin"
@@ -107,7 +107,7 @@
             android:layout_marginTop="30dp"
             android:text="Mật khẩu hiện tại"
             android:textColor="@color/black"
-            android:textSize="19dp" />
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/txt_Matkhauhientai"
@@ -130,7 +130,7 @@
             android:layout_marginTop="30dp"
             android:text="Mật khẩu mới"
             android:textColor="@color/black"
-            android:textSize="19dp" />
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/txt_Matkhaumoi"
