@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,14 +19,13 @@ import com.firebase.ui.database.SnapshotParser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ListProductActivity extends AppCompatActivity {
 
-    ImageButton back, add;
+    ImageView back, add;
     Intent intent;
     RecyclerView danhsach;
     ProductAdapter adapter;
@@ -88,8 +88,8 @@ public class ListProductActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        back = (ImageButton) findViewById(R.id.btn_BackHome);
-        add = (ImageButton) findViewById(R.id.btn_AddProduct);
+        back = (ImageView) findViewById(R.id.btn_BackDSSP);
+        add = (ImageView) findViewById(R.id.btn_AddProduct);
         timkiem = (EditText) findViewById(R.id.txt_timkiemSP);
         danhsach = (RecyclerView) findViewById(R.id.rv_ListProduct);
     }
@@ -105,5 +105,4 @@ public class ListProductActivity extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
-
 }

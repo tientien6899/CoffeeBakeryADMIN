@@ -13,8 +13,8 @@
         android:background="@color/white"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/btn_BackHome"
+        <ImageView
+            android:id="@+id/btn_BackDSSP"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -31,7 +31,7 @@
             android:textSize="19sp"
             android:textStyle="bold" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_AddProduct"
             android:layout_width="30dp"
             android:layout_height="30dp"
