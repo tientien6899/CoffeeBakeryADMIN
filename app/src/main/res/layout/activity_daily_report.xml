@@ -19,7 +19,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
+            android:background="@drawable/back"/>
 
         <TextView
             android:layout_width="match_parent"

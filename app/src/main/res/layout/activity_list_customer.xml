@@ -52,19 +52,8 @@
             android:id="@+id/searchViewCustomer"
             android:layout_width="match_parent"
             android:layout_height="37dp"
-<<<<<<< HEAD
             app:queryHint="Search..."
             android:layout_margin="5dp"/>
-=======
-            android:background="@drawable/bg_textfield"
-            android:drawableRight="@drawable/search"
-            android:hint="Tìm kiếm khách hàng ..."
-            android:inputType="text"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:textColorHint="#7e7e7e"
-            android:textSize="15sp" />
->>>>>>> 4b9d8f2e6cd649c36c4b3a461779fef9c1ffd341
 
     </LinearLayout>
 
