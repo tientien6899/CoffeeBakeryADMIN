@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +13,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coffeebakeryadmin.AdminActivity;
+import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
 import com.example.coffeebakeryadmin.R;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.database.SnapshotParser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ListProductActivity extends AppCompatActivity {
@@ -29,8 +34,9 @@ public class ListProductActivity extends AppCompatActivity {
     Intent intent;
     RecyclerView danhsach;
     ProductAdapter adapter;
-    EditText timkiem;
-    private DatabaseReference danhsachRef, mData;
+    SearchView timkiem;
+    ArrayList<Product> arrayList;
+    private DatabaseReference mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,37 +44,45 @@ public class ListProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_product);
 
         AnhXa();
-
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
-        Calendar calendar = Calendar.getInstance();
-        String ngay = dateformat.format(calendar.getTime());
-
+        arrayList = new ArrayList<Product>();
         mData = FirebaseDatabase.getInstance().getReference();
         danhsach.setLayoutManager(new LinearLayoutManager(this));
 
-        danhsachRef = mData.child("SanPham");
+        mData.child("SanPham").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot snap : snapshot.getChildren()){
+                    Product p = snap.getValue(Product.class);
+                    arrayList.add(p);
+                }
+                adapter = new ProductAdapter(arrayList,ListProductActivity.this);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListProductActivity.this);
+                danhsach.setAdapter(adapter);
+                danhsach.setLayoutManager(linearLayoutManager);
+            }
 
-        FirebaseRecyclerOptions<Product> options =
-                new FirebaseRecyclerOptions.Builder<Product>()
-                        .setQuery(danhsachRef, new SnapshotParser<Product>() {
-                            @NonNull
-                            @Override
-                            public Product parseSnapshot(@NonNull DataSnapshot snapshot) {
-                                return new Product(snapshot.child("tensp").getValue().toString(),
-                                        snapshot.child("danhmuc").getValue().toString(),
-                                        snapshot.child("link").getValue().toString(),
-                                        snapshot.child("masp").getValue().toString(),
-                                        snapshot.child("giaS").getValue().toString(),
-                                        snapshot.child("giaM").getValue().toString(),
-                                        snapshot.child("giaL").getValue().toString(),
-                                        snapshot.child("giaKM").getValue().toString(),
-                                        snapshot.child("mota").getValue().toString(),
-                                        snapshot.child("ngaydang").getValue().toString());
-                            }
-                        })
-                        .build();
-        adapter = new ProductAdapter(options);
-        danhsach.setAdapter(adapter);
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        if(timkiem != null){
+            timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    search(s);
+                    return true;
+                }
+            });
+        }
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,20 +104,20 @@ public class ListProductActivity extends AppCompatActivity {
     private void AnhXa() {
         back = (ImageButton) findViewById(R.id.btn_BackHome);
         add = (ImageButton) findViewById(R.id.btn_AddProduct);
-        timkiem = (EditText) findViewById(R.id.txt_timkiemSP);
+        timkiem = (SearchView) findViewById(R.id.searchView) ;
         danhsach = (RecyclerView) findViewById(R.id.rv_ListProduct);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adapter.startListening();
+    private void search(String s){
+        ArrayList<Product> list = new ArrayList<>();
+        for(Product obj : arrayList){
+            if(obj.getTensp().toLowerCase().contains(s.toLowerCase())){
+                list.add(obj);
+            }
+        }
+        ProductAdapter adapter1 = new ProductAdapter(list,ListProductActivity.this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListProductActivity.this);
+        danhsach.setAdapter(adapter1);
+        danhsach.setLayoutManager(linearLayoutManager);
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
-
 }

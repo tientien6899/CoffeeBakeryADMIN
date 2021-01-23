@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="250dp"
+    android:orientation="vertical">
+
+    <DatePicker
+        android:id="@+id/time_thongkengay"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:maxDate="31"
+        android:minDate="1"/>
+
+    <Button
+        android:id="@+id/btn_xemthongkengay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Xem báo cáo"/>
+
+</LinearLayout>

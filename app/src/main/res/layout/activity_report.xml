@@ -39,70 +39,271 @@
             android:background="@color/white" />
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="vertical">
 
-            <com.anychart.AnyChartView
-                android:id="@+id/any_chart_view"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="500dp" />
+                android:layout_height="20dp"
+                android:text="Tổng đơn hàng"
+                android:textSize="13sp"
+                android:gravity="center"/>
 
-<!--            <ProgressBar-->
-<!--                android:id="@+id/progress_bar"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"/>-->
+            <TextView
+                android:id="@+id/txt_TongDonHang"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="100"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
 
         </LinearLayout>
 
-    </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Tổng doanh thu"
+                android:textSize="13sp"
+                android:gravity="center"/>
 
-<!--        <RadioGroup-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp">-->
+            <TextView
+                android:id="@+id/txt_TongDoanhThu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="100000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thống kê doanh thu theo ngày"-->
-<!--                android:textSize="17sp" />-->
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thống kê doanh thu theo tháng"-->
-<!--                android:textSize="17sp" />-->
+        </LinearLayout>
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thống kê doanh thu theo quý"-->
-<!--                android:textSize="17sp" />-->
+    </LinearLayout>
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thống kê doanh thu theo năm"-->
-<!--                android:textSize="17sp" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-<!--            <RadioButton-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Thống kê khách hàng"-->
-<!--                android:textSize="17sp" />-->
-<!--        </RadioGroup>-->
-<!--    </LinearLayout>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/report_dailyreport"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
+                android:background="@drawable/rectangle_1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/icons8_medium_icons_100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Thống kê theo ngày"
+                    android:textColor="#444444"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:id="@+id/report_monthreport"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
+                android:background="@drawable/rectangle_2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/icons8_medium_icons_100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Thống kê theo tháng"
+                    android:textColor="#444444"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/report_quarreport"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
+                android:background="@drawable/rectangle_3"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/icons8_literature_100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Thống kê theo quý"
+                    android:textColor="#444444"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:id="@+id/cv_QLKH"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
+                android:background="@drawable/rectangle_4"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/icons8_crowd_100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Quản lý khách hàng"
+                    android:textColor="#444444"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/report_totalDonHang"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
+                android:background="@drawable/rectangle_5"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/icons8_user_folder_100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Thống kê đơn hàng"
+                    android:textColor="#444444"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="20dp" />
+
+            <LinearLayout
+                android:id="@+id/cv_QLDH"
+                android:layout_width="150dp"
+                android:layout_height="85dp"
+                android:background="@drawable/rectangle_6"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@drawable/icons8_order_history_100" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Quản lý đơn hàng"
+                    android:textColor="#444444"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

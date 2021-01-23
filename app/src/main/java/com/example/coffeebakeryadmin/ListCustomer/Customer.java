@@ -71,4 +71,5 @@ public class Customer {
     public void setThanhpho(String thanhpho) {
         this.thanhpho = thanhpho;
     }
+
 }

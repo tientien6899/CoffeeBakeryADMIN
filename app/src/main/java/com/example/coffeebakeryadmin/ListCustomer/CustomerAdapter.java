@@ -1,5 +1,6 @@
 package com.example.coffeebakeryadmin.ListCustomer;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,23 +9,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coffeebakeryadmin.List_Product.ProductAdapter;
 import com.example.coffeebakeryadmin.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-public class CustomerAdapter extends FirebaseRecyclerAdapter<Customer,CustomerAdapter.Holder> {
+import java.util.List;
 
-    public CustomerAdapter(@NonNull FirebaseRecyclerOptions<Customer> options) {
-        super(options);
-    }
+public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Holder>{
 
-    @Override
-    protected void onBindViewHolder(@NonNull Holder holder, int position, @NonNull Customer model) {
-        holder.hoten.setText(model.getHoten());
-        holder.mail.setText(model.getGmail());
-        String dc = model.getSonha() + " " + model.getPhuong() + " " + model.getQuan() + " " + model.getThanhpho();
-        holder.diachi.setText(dc);
-        holder.sdt.setText(model.getSdt());
+    private List mCustomer;
+    private Context mContext;
+
+    public CustomerAdapter(List mCustomer, Context context){
+        this.mCustomer = mCustomer;
+        this.mContext = context;
     }
 
     @NonNull
@@ -32,6 +31,20 @@ public class CustomerAdapter extends FirebaseRecyclerAdapter<Customer,CustomerAd
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_customer, parent, false);
         return new CustomerAdapter.Holder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull Holder holder, int position) {
+        Customer cu = (Customer) mCustomer.get(position);
+        holder.hoten.setText(cu.getHoten());
+        holder.mail.setText(cu.getGmail() + "@gmail.com");
+        holder.diachi.setText(cu.getSonha() + " " + cu.getPhuong() + " " + cu.getQuan() + " " + cu.getThanhpho());
+        holder.sdt.setText(cu.getSdt());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mCustomer.size();
     }
 
     public class Holder extends RecyclerView.ViewHolder {
@@ -45,3 +58,4 @@ public class CustomerAdapter extends FirebaseRecyclerAdapter<Customer,CustomerAd
         }
     }
 }
+
