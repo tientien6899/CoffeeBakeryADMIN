@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.coffeebakeryadmin.Banner.BannerActivity;
+import com.example.coffeebakeryadmin.Banner.ListBannerActivity;
 import com.example.coffeebakeryadmin.ListCustomer.ListCustomerActivity;
 import com.example.coffeebakeryadmin.ListReport.ReportActivity;
 import com.example.coffeebakeryadmin.List_Post.ListPostActivity;
@@ -75,6 +77,14 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(v.getContext(), ListPostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cv_bqc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(view.getContext(), ListBannerActivity.class);
                 startActivity(intent);
             }
         });

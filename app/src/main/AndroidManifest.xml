@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListReport.QuarReportActivity"></activity>
+        <activity android:name=".Banner.ListBannerActivity"></activity>
+        <activity android:name=".Banner.BannerActivity" />
+        <activity android:name=".ListReport.QuarReportActivity" />
         <activity android:name=".ListReport.MonthReportActivity" />
         <activity android:name=".ListReport.DailyReportActivity" />
         <activity android:name=".AccountActivity" />
