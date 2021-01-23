@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+<<<<<<< HEAD
 import android.widget.SearchView;
+=======
+import android.widget.ImageView;
+>>>>>>> 4b9d8f2e6cd649c36c4b3a461779fef9c1ffd341
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +25,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+<<<<<<< HEAD
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+=======
+>>>>>>> 4b9d8f2e6cd649c36c4b3a461779fef9c1ffd341
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +37,7 @@ import java.util.Calendar;
 
 public class ListProductActivity extends AppCompatActivity {
 
-    ImageButton back, add;
+    ImageView back, add;
     Intent intent;
     RecyclerView danhsach;
     ProductAdapter adapter;
@@ -102,9 +109,15 @@ public class ListProductActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
+<<<<<<< HEAD
         back = (ImageButton) findViewById(R.id.btn_BackHome);
         add = (ImageButton) findViewById(R.id.btn_AddProduct);
         timkiem = (SearchView) findViewById(R.id.searchView) ;
+=======
+        back = (ImageView) findViewById(R.id.btn_BackDSSP);
+        add = (ImageView) findViewById(R.id.btn_AddProduct);
+        timkiem = (EditText) findViewById(R.id.txt_timkiemSP);
+>>>>>>> 4b9d8f2e6cd649c36c4b3a461779fef9c1ffd341
         danhsach = (RecyclerView) findViewById(R.id.rv_ListProduct);
     }
 

@@ -9,37 +9,33 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/img_BackDSSP"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/back" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Chi tiết đơn hàng"
+            android:layout_weight="1"
             android:gravity="center"
+            android:text="Chi tiết đơn hàng"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:layout_weight="1" />
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
         <View
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"/>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#f1f1f1"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -381,8 +377,8 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="đ"
-                        android:textStyle="bold"
-                        android:textSize="18dp"/>
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -391,19 +387,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/btn_chapnhan"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="Xác nhận"/>
+                    android:text="Xác nhận" />
 
                 <Button
                     android:id="@+id/btn_huybo"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="Hủy bỏ"/>
+                    android:text="Hủy bỏ" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

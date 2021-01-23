@@ -84,7 +84,7 @@
                 android:id="@+id/btn_XacnhanDM"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/bg_button"
                 android:text="Xác nhận"
                 android:textColor="@color/white"
                 android:textSize="15sp"
