@@ -3,21 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".ListReport.ReportActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btn_BackReport"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/back" />
 
         <TextView
@@ -27,74 +28,76 @@
             android:gravity="center"
             android:text="Báo cáo - thống kê"
             android:textColor="@color/black"
-            android:textSize="17sp"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/btn_AddProduct"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:background="@color/white" />
+        <View
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:background="@color/white"
-        android:layout_margin="10dp">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/bg_red"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Tổng đơn hàng"
-                android:textSize="13sp"
-                android:gravity="center"/>
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_TongDonHang"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="100"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="100"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/bg_blue"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Tổng doanh thu"
-                android:textSize="13sp"
-                android:gravity="center"/>
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txt_TongDoanhThu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="100000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:gravity="center"/>
-
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="100000000"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -106,34 +109,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/report_dailyreport"
                 android:layout_width="150dp"
-                android:layout_height="85dp"
-                android:background="@color/white"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_subadmin"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="11dp"
-                    android:background="@color/white" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/daily" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="4dp"
                     android:text="Thống kê theo ngày"
-                    android:textColor="#444444"
-                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -144,27 +142,22 @@
             <LinearLayout
                 android:id="@+id/report_monthreport"
                 android:layout_width="150dp"
-                android:layout_height="85dp"
-                android:background="@color/white"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_subadmin"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="11dp"
-                    android:background="@color/white" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/month" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="4dp"
                     android:text="Thống kê theo tháng"
-                    android:textColor="#444444"
-                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -180,27 +173,22 @@
             <LinearLayout
                 android:id="@+id/report_quarreport"
                 android:layout_width="150dp"
-                android:layout_height="85dp"
-                android:background="@color/white"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_subadmin"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="11dp"
-                    android:background="@color/white" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/quar" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="4dp"
                     android:text="Thống kê theo quý"
-                    android:textColor="#444444"
-                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -211,27 +199,22 @@
             <LinearLayout
                 android:id="@+id/cv_QLKH"
                 android:layout_width="150dp"
-                android:layout_height="85dp"
-                android:background="@color/white"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_subadmin"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="11dp"
-                    android:background="@color/white" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/chartqlkh" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="4dp"
                     android:text="Quản lý khách hàng"
-                    android:textColor="#444444"
-                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -247,27 +230,22 @@
             <LinearLayout
                 android:id="@+id/report_totalDonHang"
                 android:layout_width="150dp"
-                android:layout_height="85dp"
-                android:background="@color/white"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_subadmin"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="11dp"
-                    android:background="@color/white" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/charttkdh" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="4dp"
                     android:text="Thống kê đơn hàng"
-                    android:textColor="#444444"
-                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -278,27 +256,22 @@
             <LinearLayout
                 android:id="@+id/cv_QLDH"
                 android:layout_width="150dp"
-                android:layout_height="85dp"
-                android:background="@color/white"
+                android:layout_height="130dp"
+                android:background="@drawable/bg_subadmin"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="11dp"
-                    android:background="@color/white" />
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/chartqldh" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="4dp"
                     android:text="Quản lý đơn hàng"
-                    android:textColor="#444444"
-                    android:textSize="13dp"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
