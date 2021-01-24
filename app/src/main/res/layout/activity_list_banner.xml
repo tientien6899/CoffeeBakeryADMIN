@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/btn_BackDSSP"
+            android:id="@+id/btn_BackPoster"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"

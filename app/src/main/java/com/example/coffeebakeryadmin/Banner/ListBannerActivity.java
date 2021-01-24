@@ -1,19 +1,17 @@
 package com.example.coffeebakeryadmin.Banner;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
-import com.example.coffeebakeryadmin.ListCustomer.Customer;
-import com.example.coffeebakeryadmin.ListCustomer.CustomerAdapter;
-import com.example.coffeebakeryadmin.ListCustomer.ListCustomerActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coffeebakeryadmin.AdminActivity;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +27,7 @@ public class ListBannerActivity extends AppCompatActivity {
     private DatabaseReference mData;
     ArrayList<Banner> arrayList;
     SearchView timkiem;
-    ImageView addposter;
+    ImageView addposter, back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,9 +79,18 @@ public class ListBannerActivity extends AppCompatActivity {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), AdminActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void AnhXa() {
+        back = findViewById(R.id.btn_BackPoster);
         addposter = (ImageView) findViewById(R.id.btn_AddPoster);
         danhsach = (RecyclerView) findViewById(R.id.rv_ListPoster);
         timkiem = (SearchView) findViewById(R.id.searchViewPoster);

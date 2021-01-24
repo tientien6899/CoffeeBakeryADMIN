@@ -1,51 +1,26 @@
 package com.example.coffeebakeryadmin.ListReport;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.anychart.APIlib;
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Cartesian;
-import com.anychart.core.cartesian.series.Column;
-import com.anychart.data.Mapping;
-import com.anychart.data.Set;
-import com.anychart.enums.Anchor;
-import com.anychart.enums.HoverMode;
-import com.anychart.enums.Position;
-import com.anychart.enums.TooltipPositionMode;
+import com.example.coffeebakeryadmin.AdminActivity;
 import com.example.coffeebakeryadmin.R;
-import com.example.coffeebakeryadmin.AdminActivity.*;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
-
 public class ReportActivity extends AppCompatActivity {
 
+    ImageView back;
     TextView tongdon, tongdoanhthu;
     LinearLayout dailyreport, monthreport, quarreport;
     private DatabaseReference mdata = FirebaseDatabase.getInstance().getReference();
@@ -111,9 +86,19 @@ public class ReportActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), AdminActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void AnhXa() {
+        back = findViewById(R.id.btn_BackReport);
         tongdon = (TextView) findViewById(R.id.txt_TongDonHang);
         tongdoanhthu = (TextView) findViewById(R.id.txt_TongDoanhThu);
         dailyreport = (LinearLayout) findViewById(R.id.report_dailyreport);

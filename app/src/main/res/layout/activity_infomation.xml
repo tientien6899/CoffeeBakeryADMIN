@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".AccountActivity">
+    tools:context=".Infomation.InfomationActivity"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/img_BackTTTK"
+            android:id="@+id/img_BackTTCH_Admin"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -21,24 +22,22 @@
             android:background="@drawable/back" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Thông tin tài khoản"
+            android:text="Thông tin cửa hàng"
             android:textColor="@color/black"
-            android:textSize="19dp"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/img_SaveTTTK"
+            android:id="@+id/img_AddInfo"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:background="@drawable/check" />
-
+            android:background="@drawable/add" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,36 +45,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/img_AvatarAdmin"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/add_image" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Họ tên"
+            android:text="Tên cửa hàng"
             android:textColor="@color/black"
             android:textSize="17dp" />
 
-        <EditText
-            android:id="@+id/txt_HotenAdmin"
+        <TextView
+            android:id="@+id/txt_TenCuaHangInfo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bg_textfield"
-            android:inputType="textPersonName"
-            android:hint="Nhập học tên ..."
+            android:text="Chưa nhập thông tin"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:gravity="center|left"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,65 +77,88 @@
             android:textColor="@color/black"
             android:textSize="17dp" />
 
-        <EditText
-            android:id="@+id/txt_EmailAdmin"
+        <TextView
+            android:id="@+id/txt_EmailCuaHangInfo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bg_textfield"
-            android:hint="Nhập email ..."
+            android:text="Chưa nhập thông tin"
             android:paddingLeft="20dp"
-            android:inputType="textEmailAddress"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:gravity="center|left"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Mật khẩu hiện tại"
+            android:text="Địa chỉ"
             android:textColor="@color/black"
             android:textSize="17dp" />
 
-        <EditText
-            android:id="@+id/txt_Matkhauhientai"
+        <TextView
+            android:id="@+id/txt_DiaChiCuaHangInfo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bg_textfield"
-            android:hint="Nhập mật khẩu hiện tại ..."
-            android:inputType="textPassword"
+            android:text="Chưa nhập thông tin"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:gravity="center|left"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Mật khẩu mới"
+            android:text="Số điện thoại"
             android:textColor="@color/black"
             android:textSize="17dp" />
 
-        <EditText
-            android:id="@+id/txt_Matkhaumoi"
+        <TextView
+            android:id="@+id/txt_SDTCuaHangInfo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bg_textfield"
-            android:hint="Nhập mật khẩu mới ..."
+            android:text="Chưa nhập thông tin"
             android:paddingLeft="20dp"
             android:textColor="@color/black"
-            android:inputType="textPassword"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:gravity="center|left"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Ghi chú"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/txt_GhiChuCuaHangInfo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_textfield"
+            android:text="Chưa nhập thông tin"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:gravity="center|left"/>
 
     </LinearLayout>
 

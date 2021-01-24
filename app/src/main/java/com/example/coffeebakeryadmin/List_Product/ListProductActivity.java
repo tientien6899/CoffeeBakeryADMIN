@@ -3,19 +3,22 @@ package com.example.coffeebakeryadmin.List_Product;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.SearchView;
 import android.widget.ImageView;
+import android.widget.SearchView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coffeebakeryadmin.AdminActivity;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class ListProductActivity extends AppCompatActivity {
@@ -80,9 +83,18 @@ public class ListProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(view.getContext(), AdminActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void AnhXa() {
+        back = findViewById(R.id.btn_BackDSSP);
         add = (ImageView) findViewById(R.id.btn_AddProduct);
         timkiem = (SearchView) findViewById(R.id.searchView) ;
         add = (ImageView) findViewById(R.id.btn_AddProduct);

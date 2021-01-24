@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/post_imgpost"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:id="@+id/post_tieudepost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="hdfhjsdbfj"
+        android:inputType="textMultiLine"
+        android:textSize="17sp"
+        android:maxLines="2"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center|left"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/post_noidungpost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hdfhjsdbfj"
+        android:inputType="textMultiLine"
+        android:textSize="13sp"
+        android:maxLines="1"
+        android:maxLength="50"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center|left"/>
+
+
+</LinearLayout>

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Banner.ListBannerActivity"></activity>
+        <activity android:name=".Infomation.AddInfoActivity"></activity>
+        <activity android:name=".Infomation.InfomationActivity" />
+        <activity android:name=".Banner.ListBannerActivity" />
         <activity android:name=".Banner.BannerActivity" />
         <activity android:name=".ListReport.QuarReportActivity" />
         <activity android:name=".ListReport.MonthReportActivity" />

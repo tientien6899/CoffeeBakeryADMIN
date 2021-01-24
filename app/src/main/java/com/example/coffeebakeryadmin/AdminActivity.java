@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.coffeebakeryadmin.Banner.BannerActivity;
 import com.example.coffeebakeryadmin.Banner.ListBannerActivity;
+import com.example.coffeebakeryadmin.Infomation.InfomationActivity;
 import com.example.coffeebakeryadmin.ListCustomer.ListCustomerActivity;
 import com.example.coffeebakeryadmin.ListReport.ReportActivity;
 import com.example.coffeebakeryadmin.List_Post.ListPostActivity;
@@ -32,6 +32,14 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
         AnhXa();
+
+        cv_ttch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(view.getContext(), InfomationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cv_dssp.setOnClickListener(new View.OnClickListener() {
             @Override

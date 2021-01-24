@@ -32,7 +32,8 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="30dp"
+            android:id="@+id/img_addPost"
+            android:layout_width="27dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
@@ -42,7 +43,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_HinhanhPost"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/add_image_product" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Tiêu đề"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/edt_TieuDePost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_textfield"
+            android:hint="Nhập tiêu đề ..."
+            android:inputType="textMultiLine"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Nội dung"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
+
+        <EditText
+            android:id="@+id/edt_NoiDungPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_textfield"
+            android:hint="Nhập tên sản phẩm ..."
+            android:inputType="textMultiLine"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
     </LinearLayout>
 </LinearLayout>
