@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListReport.QuarReportActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ListReport.QuarReportActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/btn_BackReportQuar"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/back" />
 
         <TextView
@@ -26,17 +26,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Báo cáo - thống kê"
+            android:text="Thống kê theo quý"
             android:textColor="@color/black"
-            android:textSize="17sp"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/btn_AddProduct"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+        <View
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="20dp"
             android:background="@color/white" />
     </LinearLayout>
 
@@ -49,54 +48,66 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="Tùy chọn tháng báo cáo"
-                android:gravity="center|left"
-                android:layout_margin="5dp"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="Chọn năm"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold"  />
 
             <TextView
                 android:id="@+id/report_yearreport"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:text="23-01-2021"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:layout_weight="1"
+                android:background="@drawable/bg_textfield"
+                android:drawableRight="@drawable/sort"
+                android:gravity="center"
+                android:paddingRight="7dp"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/report_xemreportquy"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="Xem báo cáo"
-                android:layout_margin="5dp"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bg_blue"
+                android:text="Xem"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold"  />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Chi tiết báo cáo"
-                android:gravity="center|left"
-                android:layout_margin="5dp"/>
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
             <com.anychart.AnyChartView
                 android:id="@+id/any_chart_view_quy"
                 android:layout_width="match_parent"
                 android:layout_height="470dp"
-                android:layout_margin="10dp"/>
-
+                android:layout_margin="10dp" />
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>
