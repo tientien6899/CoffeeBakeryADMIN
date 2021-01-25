@@ -51,6 +51,7 @@ public class BannerActivity extends AppCompatActivity {
         if(ten != null && link != null){
             nameposter.setText(ten);
             Glide.with(this).load(link).into(imgposter);
+            imgposter.setBackgroundColor(Color.WHITE);
         }
 
         imgposter.setOnClickListener(new View.OnClickListener() {

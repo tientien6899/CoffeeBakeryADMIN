@@ -23,7 +23,7 @@ import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import static com.example.coffeebakeryadmin.Account.LoginActivity.gmail;
+import static com.example.coffeebakeryadmin.Account.LoginActivity.user;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -38,6 +38,8 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
         AnhXa();
+
+        txt_tenadmin.setText(user);
 
         cv_ttch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +127,6 @@ public class AdminActivity extends AppCompatActivity {
                         .setPositiveButton("Đăng xuất", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                gmail = "";
                                 Intent dangxuat = new Intent(AdminActivity.this, LoginActivity.class);
                                 startActivity(dangxuat);
                             }

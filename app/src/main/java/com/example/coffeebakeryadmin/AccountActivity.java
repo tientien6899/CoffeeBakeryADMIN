@@ -5,8 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import static com.example.coffeebakeryadmin.Account.LoginActivity.arr_pass;
+import static com.example.coffeebakeryadmin.Account.LoginActivity.pass;
+import static com.example.coffeebakeryadmin.Account.LoginActivity.user;
+import static com.example.coffeebakeryadmin.AdminActivity.mData;
 
 public class AccountActivity extends AppCompatActivity {
 
@@ -19,6 +30,49 @@ public class AccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_account);
         AnhXa();
 
+        mData.child("Admin").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Admin a = snapshot.getValue(Admin.class);
+                    txt_hotenadmin.setText(a.getHoten());
+                    txt_emailadmin.setText(a.getEmail());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        img_savetttk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hoten = txt_hotenadmin.getText().toString();
+                String mail = txt_emailadmin.getText().toString();
+                String mkht = txt_matkhauhientai.getText().toString();
+                String mkmoi = txt_matkhaumoi.getText().toString();
+                if(mkht.contains(arr_pass)){
+                    if(mkmoi != ""){
+                        mkht = mkmoi;
+                    }
+                    Admin ad = new Admin(hoten,mail,mkht);
+                    mData.child("Admin").setValue(ad);
+                    user = hoten;
+                    Toast.makeText(AccountActivity.this, "Thêm thông tin Admin thành công!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(v.getContext(), AdminActivity.class);
+                    startActivity(intent);
+
+                }
+                else {
+                    Toast.makeText(AccountActivity.this, "Mời nhập lại mật khẩu!", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
         img_backtttk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +80,8 @@ public class AccountActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     private void AnhXa() {

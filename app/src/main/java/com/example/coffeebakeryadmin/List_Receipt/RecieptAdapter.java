@@ -44,9 +44,11 @@ public class RecieptAdapter extends RecyclerView.Adapter<RecieptAdapter.Holder>{
         holder.trangthai.setText(re.getTrangthai());
         String tt = re.getTrangthai();
         if(tt.contains("Đang xử lý")){
-            holder.trangthai.setTextColor(Color.YELLOW);
+            holder.trangthai.setTextColor(Color.BLUE);
         } else if(tt.contains("Hoàn thành")){
             holder.trangthai.setTextColor(Color.GREEN);
+        }else{
+            holder.trangthai.setTextColor(Color.RED);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

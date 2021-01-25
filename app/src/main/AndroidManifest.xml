@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Account.LoginActivity"></activity>
+        <activity android:name=".Account.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ListBook.AddBookActivity" />
         <activity android:name=".ListBook.BookActivity" />
         <activity android:name=".ListDetailPost.DetailPostActivity" />
@@ -32,11 +38,7 @@
         <activity android:name=".ListDetailCustomer.DetailCustomerActivity" />
         <activity android:name=".ListCustomer.ListCustomerActivity" />
         <activity android:name=".AdminActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

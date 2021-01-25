@@ -18,6 +18,9 @@
         android:id="@+id/btn_xemthongkengay"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Xem báo cáo"/>
+        android:text="Xác nhận"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:background="@drawable/bg_button"/>
 
 </LinearLayout>

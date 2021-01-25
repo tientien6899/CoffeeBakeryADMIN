@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListBook.AddBookActivity"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ListBook.AddBookActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
-            android:background="@drawable/add" />
+            android:background="@drawable/check" />
     </LinearLayout>
 
     <LinearLayout
@@ -47,45 +47,51 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Tiêu đề"
-            android:gravity="center|left"
-            android:layout_margin="10dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Tên chính sách"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/detailbook_tieude"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="A"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:inputType="textMultiLine"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/bg_textfield"
-            android:textStyle="bold"/>
+            android:hint="Nhập tên chính sách ..."
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/black"
+            android:textSize="16dp"  />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Nội dung"
-            android:gravity="center|left"
-            android:layout_margin="10dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Nội dung chính sách"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
 
         <EditText
             android:id="@+id/detailbook_noidung"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:inputType="textMultiLine"
-            android:background="@drawable/bg_textfield"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_textfield"
+            android:hint="Nhập nội dung chính sách ..."
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/black"
+            android:textSize="16dp" />
 
     </LinearLayout>
 

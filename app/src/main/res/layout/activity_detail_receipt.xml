@@ -13,8 +13,8 @@
         android:background="@color/white"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/img_BackDSSP"
+        <ImageView
+            android:id="@+id/img_BackDSDH"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -144,6 +144,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:hint="123456789abcxyz"
+                        android:gravity="right"
                         android:textSize="15dp" />
 
                 </LinearLayout>
@@ -231,6 +232,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="10dp"
                         android:hint="100"
+                        android:gravity="right"
                         android:textSize="15dp" />
 
                     <TextView
@@ -265,6 +267,7 @@
                         android:layout_marginRight="3dp"
                         android:layout_marginBottom="10dp"
                         android:hint="1.000.000"
+                        android:gravity="right"
                         android:textSize="15dp" />
 
                     <TextView
@@ -322,8 +325,7 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
-                        android:text="Phí giao hàng"
-                        android:textColor="@color/black"
+                        android:text="Giảm giá"                        android:textColor="@color/black"
                         android:textSize="15dp" />
 
                     <TextView
@@ -369,6 +371,7 @@
                         android:layout_marginBottom="10dp"
                         android:hint="1.000.000"
                         android:textSize="19dp"
+                        android:gravity="right"
                         android:textStyle="bold" />
 
                     <TextView
@@ -386,23 +389,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_chapnhan"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/bg_blue"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
                     android:text="Xác nhận" />
 
                 <Button
                     android:id="@+id/btn_huybo"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/bg_red"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
                     android:text="Hủy bỏ" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

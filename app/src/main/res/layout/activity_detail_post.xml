@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListDetailPost.DetailPostActivity"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ListDetailPost.DetailPostActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,49 +14,32 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/img_BackDSSP"
+            android:id="@+id/img_BackDSBV"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@drawable/back"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="5dp"/>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:background="@color/white"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="5dp"
+            android:background="@drawable/back" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="bài viết"
+            android:text="Chi tiết bài viết"
             android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/img_UpdatePost"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:background="@drawable/back"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/img_DeletePost"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:background="@drawable/back"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="5dp"/>
+            android:background="@drawable/delete" />
+
     </LinearLayout>
 
     <ScrollView
@@ -70,45 +53,91 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/detailpost_tieude"
+
+            <ImageView
+                android:id="@+id/detailpost_hinhanh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A"
-                android:gravity="center|left"
-                android:layout_margin="10dp"
-                android:textStyle="bold"
-                android:textSize="17sp"
-                android:background="@drawable/bg_textfield"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp" />
 
             <TextView
                 android:id="@+id/detailpost_ngaydang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A"
-                android:textSize="13sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
                 android:gravity="center|left"
-                android:textStyle="italic"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:hint="25/1/2021"
+                android:textSize="13sp"
+                android:textStyle="italic" />
 
-            <ImageView
-                android:id="@+id/detailpost_hinhanh"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Tiêu đề"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/detailpost_tieude"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_margin="10dp"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bg_textfield"
+                android:hint="Nhập tiêu đề ..."
+                android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Nội dung"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
 
             <EditText
                 android:id="@+id/detailpost_noidung"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A"
-                android:gravity="center|left"
-                android:textSize="13sp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textAlignment="inherit"
-                android:background="@drawable/bg_textfield"/>
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_textfield"
+                android:hint="Nhập nội dung ..."
+                android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/img_UpdatePost"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_button"
+                android:text="Cập nhật"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

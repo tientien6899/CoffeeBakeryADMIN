@@ -78,7 +78,7 @@ public class AddBookActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(view.getContext(), AdminActivity.class);
+                Intent intent1 = new Intent(view.getContext(), BookActivity.class);
                 startActivity(intent1);
             }
         });

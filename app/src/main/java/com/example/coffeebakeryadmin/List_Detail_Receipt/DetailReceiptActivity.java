@@ -11,9 +11,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
 import com.example.coffeebakeryadmin.List_Receipt.Receipt;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +30,7 @@ import java.util.ArrayList;
 public class DetailReceiptActivity extends AppCompatActivity {
     TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh;
     RecyclerView recyclerView;
+    ImageView back;
     Button chapnhan, huybo;
     DetailReceiptAdapter adapter;
     ArrayList<DetailReceipt> listchitiet;
@@ -147,8 +150,12 @@ public class DetailReceiptActivity extends AppCompatActivity {
                                                     if(temp_trangthai.contains("Hoàn thành")){
                                                         Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã hoàn thành!", Toast.LENGTH_SHORT).show();
                                                     } else {
-                                                        data.child("DonHang").child(md).removeValue();
+                                                        String temp_huybo = "Từ chối";
+                                                        Receipt re = new Receipt(md,nd,tt,temp_huybo,gmail);
+                                                        data.child("DonHang").child(md).setValue(re);
                                                         Toast.makeText(DetailReceiptActivity.this, "Hủy đơn thành công!", Toast.LENGTH_SHORT).show();
+                                                        Intent intent1 = new Intent(DetailReceiptActivity.this, ListReceiptActivity.class);
+                                                        startActivity(intent1);
                                                     }
                                                 }
                                             }
@@ -162,6 +169,14 @@ public class DetailReceiptActivity extends AppCompatActivity {
                                 });
                             }
                         }).show();
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailReceiptActivity.this, ListReceiptActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -180,5 +195,6 @@ public class DetailReceiptActivity extends AppCompatActivity {
         phigh = (TextView) findViewById(R.id.txt_Phigiaohang);
         chapnhan = (Button) findViewById(R.id.btn_chapnhan);
         huybo = (Button) findViewById(R.id.btn_huybo);
+        back = findViewById(R.id.img_BackDSDH);
     }
 }
