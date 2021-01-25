@@ -1,4 +1,4 @@
-package com.example.coffeebakeryadmin.Banner;
+package com.example.coffeebakeryadmin.ListBook;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,86 +14,81 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-public class BannerAdapter extends RecyclerView.Adapter<BannerAdapter.Holder> {
-    private List mPoster;
-    private Context mContext;
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
+    private List mBook;
+    private Context context;
     private DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
-    public BannerAdapter(List mPoster, Context context){
-        this.mPoster = mPoster;
-        this.mContext = context;
+    public BookAdapter(List mBook, Context context){
+        this.mBook = mBook;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_poster, parent, false);
-        return new BannerAdapter.Holder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_book, parent, false);
+        return new BookAdapter.Holder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        Banner bn = (Banner) mPoster.get(position);
-        holder.name.setText(bn.getTen());
-        Glide.with(holder.img.getContext()).load(bn.getLink()).into(holder.img);
+        Book b = (Book) mBook.get(position);
+        holder.tieude.setText(b.getTieude());
 
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setMessage("Xác nhận xóa poster này?");
-                builder.setNeutralButton("Quay lại", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                })
+                builder.setMessage("Bạn muốn xóa chính sách này?")
+                        .setNeutralButton("Quay lại", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
                         .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                mData.child("Poster").child(bn.getTen()).removeValue();
-                                Toast.makeText(mContext, "Xóa thành công!", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(mContext,ListBannerActivity.class);
-                                mContext.startActivity(intent);
+                                mData.child("ChinhSach").child(b.getTieude()).removeValue();
+                                Toast.makeText(context, "Xóa thànhc công!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(context,BookActivity.class);
+                                context.startActivity(intent);
                                 dialogInterface.cancel();
                             }
                         }).show();
             }
         });
 
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, BannerActivity.class);
-                intent.putExtra("NAME",bn.getTen());
-                intent.putExtra("LINK",bn.getLink());
+                Intent intent = new Intent(context, AddBookActivity.class);
+                intent.putExtra("TIEUDE",b.getTieude());
+                intent.putExtra("NOIDUNG",b.getNoidung());
                 context.startActivity(intent);
             }
         });
-
     }
 
     @Override
     public int getItemCount() {
-        return mPoster.size();
+        return mBook.size();
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        ImageView img, delete;
-        TextView name;
+        TextView tieude;
+        ImageView delete;
         public Holder(@NonNull View itemView) {
             super(itemView);
-            img = (ImageView) itemView.findViewById(R.id.poster_img);
-            name = (TextView) itemView.findViewById(R.id.poster_name);
-            delete = itemView.findViewById(R.id.poster_delete);
+            tieude = itemView.findViewById(R.id.book_tieude);
+            delete = itemView.findViewById(R.id.book_deletebook);
         }
     }
 }

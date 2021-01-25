@@ -1,4 +1,4 @@
-package com.example.coffeebakeryadmin.Banner;
+package com.example.coffeebakeryadmin.ListDetailPost;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.coffeebakeryadmin.List_Post.ListPostActivity;
+import com.example.coffeebakeryadmin.List_Post.Post;
 import com.example.coffeebakeryadmin.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -26,10 +29,14 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-public class BannerActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-    ImageView imgposter, addposter, back;
-    EditText nameposter;
+public class DetailPostActivity extends AppCompatActivity {
+
+    EditText tieude, noidung;
+    TextView ngaydang;
+    ImageView hinhanh, updatePost, deletePost;
     FirebaseStorage storage;
     StorageReference storageReference;
     public Uri path;
@@ -38,22 +45,31 @@ public class BannerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banner);
+        setContentView(R.layout.activity_detail_post);
+
         AnhXa();
+
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
         mData = FirebaseDatabase.getInstance().getReference();
 
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String ngay = dateformat.format(calendar.getTime());
+
         Intent intent = getIntent();
-        String ten = intent.getStringExtra("NAME");
-        String link = intent.getStringExtra("LINK");
+        String td = intent.getStringExtra("TIEUDE");
+        String nd = intent.getStringExtra("NOIDUNG");
+        String ng = intent.getStringExtra("NGAYDANG");
+        String ha = intent.getStringExtra("HINHANH");
 
-        if(ten != null && link != null){
-            nameposter.setText(ten);
-            Glide.with(this).load(link).into(imgposter);
-        }
+        tieude.setText(td);
+        noidung.setText(nd);
+        ngaydang.setText("Ngày đăng: " + ng);
+        Glide.with(this).load(ha).into(hinhanh);
 
-        imgposter.setOnClickListener(new View.OnClickListener() {
+        hinhanh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -63,21 +79,28 @@ public class BannerActivity extends AppCompatActivity {
             }
         });
 
-        addposter.setOnClickListener(new View.OnClickListener() {
+        updatePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Banner bn = new Banner();
-                bn.ten = nameposter.getText().toString();
+                String temp_tieude = tieude.getText().toString();
+                String temp_noidung = noidung.getText().toString();
+
+                Post p = new Post();
+                p.setTieude(temp_tieude);
+                p.setNoidung(temp_noidung);
+                p.setNgaydang(ngay);
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setCancelable(true);
                 builder.setTitle("Thông báo");
-                builder.setMessage("Bạn có chắc muốn thêm Poster này chứ ?");
+                builder.setMessage("Xác nhận cập nhật bài viết?");
                 builder.setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        mData.child("Post").child(td).removeValue();
                         if (path != null) {
-                            StorageReference ref = storageReference.child("Poster").child(bn.getTen() + ".png");
-                            final ProgressDialog progressDialog = new ProgressDialog(BannerActivity.this);
+                            StorageReference ref = storageReference.child("Post").child(p.getTieude() + ".png");
+                            final ProgressDialog progressDialog = new ProgressDialog(DetailPostActivity.this);
                             progressDialog.setTitle("Uploading...");
                             progressDialog.show();
                             ref.putFile(path).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -87,13 +110,13 @@ public class BannerActivity extends AppCompatActivity {
                                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
-                                            bn.link = "" + uri.toString();
-                                            mData.child("Poster").child(bn.getTen()).setValue(bn);
+                                            p.setHinhanh("" + uri.toString());
+                                            mData.child("Post").child(p.getTieude()).setValue(p);
                                         }
                                     });
                                     progressDialog.dismiss();
-                                    Toast.makeText(BannerActivity.this, "Thêm Poster thành công !", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(BannerActivity.this, ListBannerActivity.class);
+                                    Toast.makeText(DetailPostActivity.this, "Cập nhật bài viết thành công!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(DetailPostActivity.this, ListPostActivity.class);
                                     startActivity(intent);
                                 }
                             })
@@ -110,7 +133,37 @@ public class BannerActivity extends AppCompatActivity {
                 builder.setPositiveButton("Hủy bỏ", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(BannerActivity.this, ListBannerActivity.class);
+                                Intent intent = new Intent(DetailPostActivity.this, ListPostActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                );
+                builder.show();
+
+            }
+        });
+
+        deletePost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setCancelable(true);
+                builder.setTitle("Thông báo");
+                builder.setMessage("Xác nhận xóa bài viết?");
+                builder.setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        mData.child("Post").child(td).removeValue();
+                        Toast.makeText(DetailPostActivity.this, "Xóa bài viết thành công!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DetailPostActivity.this, ListPostActivity.class);
+                        startActivity(intent);
+                        dialogInterface.cancel();
+                    }
+                });
+                builder.setPositiveButton("Hủy bỏ", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(DetailPostActivity.this, ListPostActivity.class);
                                 startActivity(intent);
                             }
                         }
@@ -119,21 +172,15 @@ public class BannerActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(view.getContext(), ListBannerActivity.class);
-                startActivity(intent1);
-            }
-        });
-
     }
 
     private void AnhXa() {
-        imgposter = (ImageView) findViewById(R.id.img_HinhAnhPoster);
-        addposter = (ImageView) findViewById(R.id.btn_LuuPoster);
-        nameposter = (EditText) findViewById(R.id.edt_TenPoster);
-        back = findViewById(R.id.img_Back_to_banner);
+        tieude = findViewById(R.id.detailpost_tieude);
+        noidung = findViewById(R.id.detailpost_noidung);
+        hinhanh = findViewById(R.id.detailpost_hinhanh);
+        ngaydang = findViewById(R.id.detailpost_ngaydang);
+        updatePost = findViewById(R.id.img_UpdatePost);
+        deletePost = findViewById(R.id.img_DeletePost);
     }
 
     @Override
@@ -142,8 +189,8 @@ public class BannerActivity extends AppCompatActivity {
         if (requestCode == 22 && resultCode == RESULT_OK && data != null) {
             Uri uri = data.getData();
             path = uri;
-            imgposter.setImageURI(uri);
-            imgposter.setBackgroundColor(Color.WHITE);
+            hinhanh.setImageURI(uri);
+            hinhanh.setBackgroundColor(Color.WHITE);
         }
     }
 }

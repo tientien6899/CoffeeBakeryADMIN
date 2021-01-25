@@ -14,7 +14,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/img_BackDSSP"
+            android:id="@+id/img_Back_to_banner"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
