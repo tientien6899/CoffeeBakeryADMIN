@@ -40,7 +40,7 @@ public class AddProductActivity extends AppCompatActivity {
 
     ImageView hinhanhsp, luusp, backsp ;
     ImageButton backhome;
-    TextView danhmucsp;
+    TextView danhmucsp, ten_giaM, ten_giaL;
     EditText tensp, masp, giaS, giaM, giaL, giaKM, mota;
     Intent intent;
     FirebaseStorage storage;
@@ -254,5 +254,7 @@ public class AddProductActivity extends AppCompatActivity {
         mota = (EditText) findViewById(R.id.edt_MotaSP);
         hinhanhsp = (ImageView) findViewById(R.id.img_HinhanhSP);
         luusp = (ImageView) findViewById(R.id.btn_LuuSP);
+        ten_giaM = findViewById(R.id.txt_GiaM);
+        ten_giaL = findViewById(R.id.txt_GiaL);
     }
 }
