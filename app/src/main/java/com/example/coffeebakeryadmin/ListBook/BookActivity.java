@@ -101,7 +101,8 @@ public class BookActivity extends AppCompatActivity {
     private void search(String s){
         ArrayList<Book> list = new ArrayList<>();
         for(Book obj : arrayList){
-            if(obj.getTieude().toLowerCase().contains(s.toLowerCase())){
+            if(obj.getTieude().toLowerCase().contains(s.toLowerCase()) ||
+            obj.getNgaydang().contains(s) || obj.getNoidung().toLowerCase().contains(s.toLowerCase())){
                 list.add(obj);
             }
         }

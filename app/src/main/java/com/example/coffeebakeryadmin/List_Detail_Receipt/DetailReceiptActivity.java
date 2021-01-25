@@ -1,11 +1,5 @@
 package com.example.coffeebakeryadmin.List_Detail_Receipt;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
 import com.example.coffeebakeryadmin.List_Receipt.Receipt;
 import com.example.coffeebakeryadmin.R;
@@ -23,7 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 
 import java.util.ArrayList;
 
@@ -181,6 +180,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
         });
 
     }
+
 
     private void AnhXa() {
         ten_kh = (TextView) findViewById(R.id.txt_Tenkhachhang);

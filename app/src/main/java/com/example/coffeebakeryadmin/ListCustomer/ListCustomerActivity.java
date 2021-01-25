@@ -1,23 +1,18 @@
 package com.example.coffeebakeryadmin.ListCustomer;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.coffeebakeryadmin.AdminActivity;
-import com.example.coffeebakeryadmin.List_Product.ListProductActivity;
-import com.example.coffeebakeryadmin.List_Product.Product;
-import com.example.coffeebakeryadmin.List_Product.ProductAdapter;
 import com.example.coffeebakeryadmin.R;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.firebase.ui.database.SnapshotParser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -94,7 +89,10 @@ public class ListCustomerActivity extends AppCompatActivity {
     private void search(String s){
         ArrayList<Customer> list = new ArrayList<>();
         for(Customer obj : arrayList){
-            if(obj.getHoten().toLowerCase().contains(s.toLowerCase())){
+            if(obj.getHoten().toLowerCase().contains(s.toLowerCase()) ||
+            obj.getThanhpho().toLowerCase().contains(s.toLowerCase()) || obj.getQuan().toLowerCase().contains(s.toLowerCase()) ||
+            obj.getPhuong().toLowerCase().contains(s.toLowerCase()) || obj.getSonha().toLowerCase().contains(s.toLowerCase()) ||
+            obj.getSonha().toLowerCase().contains(s.toLowerCase()) || obj.getSdt().toLowerCase().contains(s.toLowerCase())){
                 list.add(obj);
             }
         }

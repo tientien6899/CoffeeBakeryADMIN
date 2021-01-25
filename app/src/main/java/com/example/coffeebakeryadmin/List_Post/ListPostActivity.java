@@ -1,20 +1,20 @@
 package com.example.coffeebakeryadmin.List_Post;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.coffeebakeryadmin.AdminActivity;
-import com.example.coffeebakeryadmin.ListCustomer.Customer;
-import com.example.coffeebakeryadmin.ListCustomer.CustomerAdapter;
-import com.example.coffeebakeryadmin.ListCustomer.ListCustomerActivity;
+import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
+import com.example.coffeebakeryadmin.List_Receipt.Receipt;
+import com.example.coffeebakeryadmin.List_Receipt.RecieptAdapter;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -78,11 +78,43 @@ public class ListPostActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        if(timkiem != null){
+            timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String s) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String s) {
+                    search(s);
+                    return true;
+                }
+            });
+        }
+
+    }
+
+    private void search(String s){
+        ArrayList<Post> list = new ArrayList<>();
+        for(Post obj : arrayList){
+            if(obj.getTieude().toLowerCase().contains(s.toLowerCase()) ||
+                    obj.getNgaydang().toLowerCase().contains(s.toLowerCase())
+                    || obj.getNoidung().toLowerCase().contains(s.toLowerCase())){
+                list.add(obj);
+            }
+        }
+        PostAdapter adapter1 = new PostAdapter(list, ListPostActivity.this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListPostActivity.this);
+        listpost.setAdapter(adapter1);
+        listpost.setLayoutManager(linearLayoutManager);
     }
 
     private void AnhXa() {
         img_backdsbv = findViewById(R.id.img_BackDSBV);
         img_adddsbv = findViewById(R.id.img_AddDSBV);
         listpost = findViewById(R.id.list_post);
+        timkiem = findViewById(R.id.searchViewPost);
     }
 }
