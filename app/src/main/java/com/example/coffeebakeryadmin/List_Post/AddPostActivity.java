@@ -79,7 +79,7 @@ public class AddPostActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setCancelable(true);
                 builder.setTitle("Thông báo");
-                builder.setMessage("Bạn có chắc muốn thêm sản phẩm này chứ ?");
+                builder.setMessage("Bạn có chắc muốn thêm bài viết này chứ ?");
                 builder.setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

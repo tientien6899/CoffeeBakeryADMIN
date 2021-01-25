@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/post_imgpost"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/post_tieudepost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:text="hdfhjsdbfj"
-        android:inputType="textMultiLine"
-        android:textSize="17sp"
-        android:maxLines="2"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:gravity="center|left"
-        android:textStyle="bold"/>
+        android:hint="Tiêu đề"
+        android:inputType="textMultiLine"
+        android:maxLines="2"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/post_noidungpost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="hdfhjsdbfj"
+        android:gravity="center|left"
+        android:hint="Nội dung"
         android:inputType="textMultiLine"
-        android:textSize="13sp"
-        android:maxLines="1"
         android:maxLength="50"
-        android:paddingLeft="10dp"
+        android:maxLines="1"
         android:paddingRight="10dp"
-        android:gravity="center|left"/>
-
-
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 </LinearLayout>
