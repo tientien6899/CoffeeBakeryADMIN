@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -38,6 +39,7 @@ public class DetailProductActivity extends AppCompatActivity {
     TextView dm;
     ImageView img;
     Button capnhat;
+    CheckBox sanphammoi;
     ImageButton xoa, backdssp;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -69,6 +71,9 @@ public class DetailProductActivity extends AppCompatActivity {
         String KM = intent.getStringExtra("GIAKM");
         String link = intent.getStringExtra("LINK");
         String nDung = intent.getStringExtra("MOTA");
+        boolean sphamMoi = intent.getBooleanExtra("SPMOI",true);
+        String mua = intent.getStringExtra("LUOTMUA");
+        String thich = intent.getStringExtra("LUOTTHICH");
 
         dm.setText(dmuc + "");
         ten.setText(tenSP + "");
@@ -80,6 +85,8 @@ public class DetailProductActivity extends AppCompatActivity {
         Glide.with(this).load(link).into(img);
         img.setBackgroundColor(Color.WHITE);
         mt.setText(nDung + "");
+        if(sphamMoi)
+            sanphammoi.setChecked(true);
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +133,10 @@ public class DetailProductActivity extends AppCompatActivity {
                             sp.giaL = l.getText().toString().trim();
                             sp.giaKM = km.getText().toString().trim();
                             sp.mota = mt.getText().toString().trim();
+                            if(sanphammoi.isChecked())
+                                sp.spmoi = true;
+                            else
+                                sp.spmoi = false;
                             sp.ngaydang = ngay;
 
                             StorageReference ref1 = storageReference.child("Image").child(sp.getDanhmuc()).child(sp.getTensp() + ".png");
@@ -140,7 +151,7 @@ public class DetailProductActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             sp.link = "" + uri.toString();
-                                            mData.child("SanPham").child(sp.masp).setValue(sp);
+                                            mData.child("Sản Phẩm").child(sp.masp).setValue(sp);
                                             mData.child(sp.danhmuc).child(sp.masp).setValue(sp);
                                         }
                                     });
@@ -179,7 +190,7 @@ public class DetailProductActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
-                        mData.child("SanPham").child(maSP).removeValue();
+                        mData.child("Sản Phẩm").child(maSP).removeValue();
                         mData.child(dmuc).child(maSP).removeValue();
 
 
@@ -225,5 +236,6 @@ public class DetailProductActivity extends AppCompatActivity {
         capnhat = (Button) findViewById(R.id.btn_CapnhatSP);
         xoa = (ImageButton) findViewById(R.id.btn_Xoa);
         backdssp = (ImageButton) findViewById(R.id.img_BackDSSP);
+        sanphammoi = (CheckBox) findViewById(R.id.chb_spmoi);
     }
 }

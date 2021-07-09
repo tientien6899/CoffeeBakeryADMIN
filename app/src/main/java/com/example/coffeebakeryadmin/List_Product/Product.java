@@ -11,12 +11,18 @@ public class Product {
     String giaKM;
     String mota;
     String ngaydang;
+    boolean spmoi;
+    int luotmua;
+    int luotyeuthich;
 
     public Product() {
 
     }
 
-    public Product(String tensp, String danhmuc, String link, String masp, String giaS, String giaM, String giaL, String giaKM, String mota, String ngaydang) {
+    public Product(String tensp, String danhmuc, String link, String masp,
+                   String giaS, String giaM, String giaL, String giaKM,
+                   String mota, String ngaydang,
+                   boolean moi, int mua, int thich) {
         this.tensp = tensp;
         this.danhmuc = danhmuc;
         this.link = link;
@@ -27,6 +33,9 @@ public class Product {
         this.giaKM = giaKM;
         this.mota = mota;
         this.ngaydang = ngaydang;
+        this.spmoi = moi;
+        this.luotmua = mua;
+        this.luotyeuthich = thich;
     }
 
     public String getTensp() {
@@ -101,12 +110,35 @@ public class Product {
         this.mota = mota;
     }
 
-
     public String getNgaydang() {
         return ngaydang;
     }
 
     public void setNgaydang(String ngaydang) {
         this.ngaydang = ngaydang;
+    }
+
+    public boolean getSPMoi() {
+        return spmoi;
+    }
+
+    public void setSPMoi(boolean moi) {
+        this.spmoi = moi;
+    }
+
+    public int getLuotMua() {
+        return luotmua;
+    }
+
+    public void setLuotMua(int mua) {
+        this.luotmua = mua;
+    }
+
+    public int getLuotYeuThich() {
+        return luotyeuthich;
+    }
+
+    public void setLuotYeuThich(int thich) {
+        this.luotyeuthich = thich;
     }
 }

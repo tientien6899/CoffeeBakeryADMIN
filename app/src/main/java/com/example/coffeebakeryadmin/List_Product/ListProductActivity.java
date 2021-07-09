@@ -41,7 +41,7 @@ public class ListProductActivity extends AppCompatActivity {
         mData = FirebaseDatabase.getInstance().getReference();
         danhsach.setLayoutManager(new LinearLayoutManager(this));
 
-        mData.child("SanPham").addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Sản Phẩm").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){

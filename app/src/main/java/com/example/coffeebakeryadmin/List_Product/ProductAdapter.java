@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -38,9 +39,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder>{
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         Product pr = (Product) mProduct.get(position);
         holder.tensp.setText(pr.getTensp());
-        holder.gias.setText(pr.getGiaS());
-        holder.giam.setText(pr.getGiaM());
-        holder.gial.setText(pr.getGiaL());
+        holder.giasp.setText(pr.getGiaS());
+        holder.luotmua.setText(pr.getLuotMua() + "");
+        if(pr.getSPMoi())
+            holder.spmoi.setChecked(true);
+
         holder.giakm.setText(pr.getGiaKM());
         Glide.with(holder.hinhanh.getContext()).load(pr.getLink()).into(holder.hinhanh);
 
@@ -58,6 +61,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder>{
                 intent.putExtra("GIAKM",pr.getGiaKM());
                 intent.putExtra("LINK",pr.getLink());
                 intent.putExtra("MOTA",pr.getMota());
+                intent.putExtra("SPMOI",pr.getSPMoi());
+                intent.putExtra("LUOTMUA",pr.getLuotMua());
+                intent.putExtra("LUOTTHICH",pr.getLuotYeuThich());
                 context.startActivity(intent);
             }
         });
@@ -70,14 +76,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder>{
 
     public class Holder extends RecyclerView.ViewHolder {
         ImageView hinhanh;
-        TextView tensp, gias, giam, gial, giakm;
+        TextView tensp, giasp, gial, giakm, luotmua, luotthich;
+        CheckBox spmoi;
         public Holder(@NonNull View itemView) {
             super(itemView);
             hinhanh = (ImageView)itemView.findViewById(R.id.hinhanh_sanpham);
             tensp = (TextView)itemView.findViewById(R.id.tensanpham_sanpham);
-            gias = (TextView)itemView.findViewById(R.id.gias_sanpham);
-            giam = (TextView)itemView.findViewById(R.id.giam_sanpham);
-            gial = (TextView)itemView.findViewById(R.id.gial_sanpham);
+            giasp = (TextView)itemView.findViewById(R.id.txt_giasp);
+            luotmua = (TextView)itemView.findViewById(R.id.txt_luotmua);
+            spmoi = (CheckBox) itemView.findViewById(R.id.chb_spmoi);
             giakm = (TextView)itemView.findViewById(R.id.giakm_sanpham);
         }
     }

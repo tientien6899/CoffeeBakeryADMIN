@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,7 +24,7 @@ public class AddInfoActivity extends AppCompatActivity {
 
     public static int checkInfo = 0;
     EditText ten, email, diachi, sdt, ghichu;
-    ImageView addInfo, back;
+    Button addInfo;
     private DatabaseReference mData;
 
     @Override
@@ -99,23 +100,14 @@ public class AddInfoActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), InfomationActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void AnhXa() {
-        back = findViewById(R.id.img_BackAddInfo_TTCH);
         ten = findViewById(R.id.txt_TenCuaHang);
         email = findViewById(R.id.txt_EmailCuaHang);
         diachi = findViewById(R.id.txt_DiaChiCuaHang);
         sdt = findViewById(R.id.txt_SDTCuaHang);
         ghichu = findViewById(R.id.txt_GhiChuCuaHang);
-        addInfo = findViewById(R.id.img_SaveTTCH);
+        addInfo = findViewById(R.id.btn_Dongy);
     }
 }

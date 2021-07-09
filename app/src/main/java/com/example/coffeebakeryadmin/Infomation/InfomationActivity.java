@@ -3,6 +3,7 @@ package com.example.coffeebakeryadmin.Infomation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class InfomationActivity extends AppCompatActivity {
 
-    ImageView addinfo, back;
+    Button addinfo;
     TextView ten, mail, diachi, sdt, ghichu;
     private DatabaseReference mData;
     @Override
@@ -70,19 +71,10 @@ public class InfomationActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AdminActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void AnhXa() {
-        back = findViewById(R.id.img_BackTTCH_Admin);
-        addinfo = findViewById(R.id.img_AddInfo);
+        addinfo = findViewById(R.id.btn_Sua);
         ten = findViewById(R.id.txt_TenCuaHangInfo);
         mail = findViewById(R.id.txt_EmailCuaHangInfo);
         diachi = findViewById(R.id.txt_DiaChiCuaHangInfo);

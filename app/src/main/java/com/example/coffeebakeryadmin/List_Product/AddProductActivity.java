@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,6 +43,7 @@ public class AddProductActivity extends AppCompatActivity {
     ImageButton backhome;
     TextView danhmucsp, ten_giaM, ten_giaL;
     EditText tensp, masp, giaS, giaM, giaL, giaKM, mota;
+    CheckBox sphammoi;
     Intent intent;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -133,6 +135,12 @@ public class AddProductActivity extends AppCompatActivity {
                 sp.giaL = giaL.getText().toString().trim();
                 sp.giaKM = giaKM.getText().toString().trim();
                 sp.mota = mota.getText().toString().trim();
+                if(sphammoi.isChecked())
+                    sp.spmoi = true;
+                else
+                    sp.spmoi = false;
+                sp.luotmua = 0;
+                sp.luotyeuthich = 0;
                 sp.ngaydang = ngay;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -155,7 +163,7 @@ public class AddProductActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             sp.link = "" + uri.toString();
-                                            mData.child("SanPham").child(sp.masp).setValue(sp);
+                                            mData.child("Sản Phẩm").child(sp.masp).setValue(sp);
                                             mData.child(sp.danhmuc).child(sp.masp).setValue(sp);
                                         }
                                     });
@@ -256,5 +264,6 @@ public class AddProductActivity extends AppCompatActivity {
         luusp = (ImageView) findViewById(R.id.btn_LuuSP);
         ten_giaM = findViewById(R.id.txt_GiaM);
         ten_giaL = findViewById(R.id.txt_GiaL);
+        sphammoi = findViewById(R.id.chb_Spmoi);
     }
 }
