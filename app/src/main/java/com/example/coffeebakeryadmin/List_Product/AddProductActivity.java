@@ -18,13 +18,13 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coffeebakeryadmin.R;
+import com.example.coffeebakeryadmin.ThongBao;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -168,6 +168,12 @@ public class AddProductActivity extends AppCompatActivity {
                                         }
                                     });
                                     progressDialog.dismiss();
+
+                                    ThongBao noti = new ThongBao();
+                                    noti.setTieude("Thông báo sản phẩm mới!");
+                                    noti.setNoidung("Thử ngay " + sp.getTensp() + " đi nào!");
+                                    mData.child("Thông báo").child(noti.getTieude()).setValue(noti);
+
                                     Toast.makeText(AddProductActivity.this, "Thêm sản phẩm thành công !", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(AddProductActivity.this, ListProductActivity.class);
                                     startActivity(intent);
