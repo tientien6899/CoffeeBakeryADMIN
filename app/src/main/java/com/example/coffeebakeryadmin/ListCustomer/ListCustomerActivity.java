@@ -37,7 +37,7 @@ public class ListCustomerActivity extends AppCompatActivity {
         danhsach.setLayoutManager(new LinearLayoutManager(this));
         arrayList = new ArrayList<Customer>();
 
-        mData.child("KHACHHANG").addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Khách hàng").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
@@ -89,10 +89,8 @@ public class ListCustomerActivity extends AppCompatActivity {
     private void search(String s){
         ArrayList<Customer> list = new ArrayList<>();
         for(Customer obj : arrayList){
-            if(obj.getHoten().toLowerCase().contains(s.toLowerCase()) ||
-            obj.getThanhpho().toLowerCase().contains(s.toLowerCase()) || obj.getQuan().toLowerCase().contains(s.toLowerCase()) ||
-            obj.getPhuong().toLowerCase().contains(s.toLowerCase()) || obj.getSonha().toLowerCase().contains(s.toLowerCase()) ||
-            obj.getSonha().toLowerCase().contains(s.toLowerCase()) || obj.getSdt().toLowerCase().contains(s.toLowerCase())){
+            if(obj.getHoten().toLowerCase().contains(s.toLowerCase())
+            || obj.getSdt().toLowerCase().contains(s.toLowerCase())){
                 list.add(obj);
             }
         }

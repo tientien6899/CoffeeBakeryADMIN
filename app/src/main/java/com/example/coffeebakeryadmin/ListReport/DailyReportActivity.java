@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -77,19 +78,19 @@ public class DailyReportActivity extends AppCompatActivity {
         xem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                data.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
+                data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String ngay = ngayreport.getText().toString();
                         int tong = 0;
+                        String ngay = ngayreport.getText().toString();
                         for(DataSnapshot snap : snapshot.getChildren()){
                             String string_ngaydat = snap.child("ngaydat").getValue().toString();
                             if(string_ngaydat.contains(ngay)){
                                 String string_tongtien = snap.child("tongtien").getValue().toString();
-                                tong += Integer.parseInt(string_tongtien);
+                                int temp_tong = Integer.parseInt(string_tongtien.replace(".",""));
+                                tong += temp_tong;
                             }
                         }
-
                         if(tong == 0){
                             Toast.makeText(DailyReportActivity.this, "Doanh thu hôm đấy không tồn tại!", Toast.LENGTH_SHORT).show();
                         }

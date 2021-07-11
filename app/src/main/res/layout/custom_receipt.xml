@@ -83,7 +83,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:gravity="center|left"
-                android:hint="1.000.000"
+                android:hint="75.000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 

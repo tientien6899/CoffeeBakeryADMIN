@@ -41,7 +41,7 @@ public class AddProductActivity extends AppCompatActivity {
 
     ImageView hinhanhsp, luusp, backsp ;
     ImageButton backhome;
-    TextView danhmucsp, ten_giaM, ten_giaL;
+    TextView danhmucsp, ten_giaM, ten_giaL, txt_giam, txt_gial;
     EditText tensp, masp, giaS, giaM, giaL, giaKM, mota;
     CheckBox sphammoi;
     Intent intent;
@@ -77,6 +77,7 @@ public class AddProductActivity extends AppCompatActivity {
                 RadioButton daxay = (RadioButton) d.findViewById(R.id.rb_Daxay);
                 RadioButton nuocepsinhto = (RadioButton) d.findViewById(R.id.rb_NuocepSinhto);
                 RadioButton banhngot = (RadioButton) d.findViewById(R.id.rb_Banhngot);
+                RadioButton topping = (RadioButton) d.findViewById(R.id.rb_Topping);
 
                 Button xacnhan = (Button) d.findViewById(R.id.btn_XacnhanDM);
                 xacnhan.setOnClickListener(new View.OnClickListener() {
@@ -84,18 +85,52 @@ public class AddProductActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if (cafetra.isChecked()) {
                             danhmucsp.setText(cafetra.getText().toString().trim());
+                            giaM.setText("");
+                            giaL.setText("");
+                            txt_giam.setVisibility(View.VISIBLE);
+                            txt_gial.setVisibility(View.VISIBLE);
+                            giaM.setVisibility(View.VISIBLE);
+                            giaL.setVisibility(View.VISIBLE);
                             d.dismiss();
                         }
                         else if (daxay.isChecked()) {
                             danhmucsp.setText(daxay.getText().toString().trim());
+                            giaM.setText("");
+                            giaL.setText("");
+                            txt_giam.setVisibility(View.VISIBLE);
+                            txt_gial.setVisibility(View.VISIBLE);
+                            giaM.setVisibility(View.VISIBLE);
+                            giaL.setVisibility(View.VISIBLE);
                             d.dismiss();
                         }
                         else if (nuocepsinhto.isChecked()) {
                             danhmucsp.setText(nuocepsinhto.getText().toString().trim());
+                            giaM.setText("");
+                            giaL.setText("");
+                            txt_giam.setVisibility(View.VISIBLE);
+                            txt_gial.setVisibility(View.VISIBLE);
+                            giaM.setVisibility(View.VISIBLE);
+                            giaL.setVisibility(View.VISIBLE);
                             d.dismiss();
                         }
                         else if(banhngot.isChecked()) {
                             danhmucsp.setText(banhngot.getText().toString().trim());
+                            giaM.setText("0");
+                            giaL.setText("0");
+                            txt_giam.setVisibility(View.GONE);
+                            txt_gial.setVisibility(View.GONE);
+                            giaM.setVisibility(View.GONE);
+                            giaL.setVisibility(View.GONE);
+                            d.dismiss();
+                        }
+                        else if(topping.isChecked()) {
+                            danhmucsp.setText(topping.getText().toString().trim());
+                            giaM.setText("0");
+                            giaL.setText("0");
+                            txt_giam.setVisibility(View.GONE);
+                            txt_gial.setVisibility(View.GONE);
+                            giaM.setVisibility(View.GONE);
+                            giaL.setVisibility(View.GONE);
                             d.dismiss();
                         }
                     }
@@ -172,7 +207,7 @@ public class AddProductActivity extends AppCompatActivity {
                                     ThongBao noti = new ThongBao();
                                     noti.setTieude("Thông báo sản phẩm mới!");
                                     noti.setNoidung("Thử ngay " + sp.getTensp() + " đi nào!");
-                                    mData.child("Thông báo").child(noti.getTieude()).setValue(noti);
+                                    mData.child("Thông báo").child(noti.getTieude()).child(sp.getTensp()).setValue(noti);
 
                                     Toast.makeText(AddProductActivity.this, "Thêm sản phẩm thành công !", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(AddProductActivity.this, ListProductActivity.class);
@@ -271,5 +306,7 @@ public class AddProductActivity extends AppCompatActivity {
         ten_giaM = findViewById(R.id.txt_GiaM);
         ten_giaL = findViewById(R.id.txt_GiaL);
         sphammoi = findViewById(R.id.chb_Spmoi);
+        txt_giam = findViewById(R.id.txt_GiaM);
+        txt_gial = findViewById(R.id.txt_GiaL);
     }
 }

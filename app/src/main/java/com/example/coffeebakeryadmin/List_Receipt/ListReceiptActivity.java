@@ -37,16 +37,12 @@ public class ListReceiptActivity extends AppCompatActivity {
         Pushy.listen(this);
         AnhXa();
         listReceipt = new ArrayList<Receipt>();
-        mData.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
+        mData.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data : snapshot.getChildren()){
-                    String temp_nguoidung = data.child("nguoidung").getValue().toString();
-                    String temp_madon = data.child("madon").getValue().toString();
-                    String temp_ngaydat = data.child("ngaydat").getValue().toString();
-                    String temp_tongtien = data.child("tongtien").getValue().toString();
-                    String temp_trangthai = data.child("trangthai").getValue().toString();
-                    listReceipt.add(new Receipt(temp_madon,temp_ngaydat,temp_tongtien,temp_trangthai,temp_nguoidung));
+                    Receipt re = data.getValue(Receipt.class);
+                    listReceipt.add(re);
                 }
                 adapter = new RecieptAdapter(listReceipt,ListReceiptActivity.this);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListReceiptActivity.this);
