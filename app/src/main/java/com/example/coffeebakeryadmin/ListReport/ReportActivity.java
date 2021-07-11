@@ -31,11 +31,11 @@ public class ReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_report);
         AnhXa();
 
-        mdata.child("STT").addListenerForSingleValueEvent(new ValueEventListener() {
+        mdata.child("Lượt Order").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String str_stt = snapshot.child("stt").getValue().toString();
-                int temp_stt = Integer.parseInt(str_stt) -1;
+                String str_stt = snapshot.child("STT").getValue().toString();
+                int temp_stt = Integer.parseInt(str_stt) - 1;
                 tongdon.setText(String.valueOf(temp_stt));
             }
 
@@ -45,15 +45,26 @@ public class ReportActivity extends AppCompatActivity {
             }
         });
 
-        mdata.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
+        mdata.child("Đơn hàng").child("Tổng tiền").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int tong = 0;
-                for(DataSnapshot snap : snapshot.getChildren()){
-                    String str_tong = snap.child("tongtien").getValue().toString();
-                    tong += Integer.parseInt(str_tong);
+                String str_tong = snapshot.child("Total").getValue().toString();
+                int temp_tongtien = Integer.parseInt(str_tong);
+                tong += temp_tongtien;
+                if(tong >= 1000000){
+                    int trieu = tong / 1000000;
+                    int ngan = tong % 1000000;
+                    if(ngan >= 1000){
+                        int tram = ngan / 1000;
+                        tongdoanhthu.setText(trieu + "." + tram + ".000 đ");
+                    }
+                }else{
+                    if(tong >= 1000){
+                        int tram = tong / 1000;
+                        tongdoanhthu.setText(tram + ".000 đ");
+                    }
                 }
-                tongdoanhthu.setText(String.valueOf(tong));
             }
 
             @Override

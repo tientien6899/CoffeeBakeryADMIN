@@ -73,7 +73,7 @@ public class QuarReportActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Cartesian cartesian = AnyChart.column();
                 List<DataEntry> data1 = new ArrayList<>();
-                mdata.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
+                mdata.child("Đơn hàng").child("Thông tin").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int tong_q1 = 0, tong_q2 = 0, tong_q3 = 0, tong_q4 = 0;
@@ -84,16 +84,16 @@ public class QuarReportActivity extends AppCompatActivity {
                                 String temp_thang = str_ngaydat.substring(3,5);
                                 if(temp_thang.contains("01") || temp_thang.contains("02") || temp_thang.contains("03")){
                                     String str_tong = snap.child("tongtien").getValue().toString();
-                                    tong_q1 += Integer.parseInt(str_tong);
+                                    tong_q1 += Integer.parseInt(str_tong.replace(".",""));
                                 } else if(temp_thang.contains("04") || temp_thang.contains("05") || temp_thang.contains("06")){
                                     String str_tong = snap.child("tongtien").getValue().toString();
-                                    tong_q2 += Integer.parseInt(str_tong);
+                                    tong_q2 += Integer.parseInt(str_tong.replace(".",""));
                                 } else if(temp_thang.contains("07") || temp_thang.contains("08") || temp_thang.contains("09")){
                                     String str_tong = snap.child("tongtien").getValue().toString();
-                                    tong_q3 += Integer.parseInt(str_tong);
+                                    tong_q3 += Integer.parseInt(str_tong.replace(".",""));
                                 } else {
                                     String str_tong = snap.child("tongtien").getValue().toString();
-                                    tong_q4 += Integer.parseInt(str_tong);
+                                    tong_q4 += Integer.parseInt(str_tong.replace(".",""));
                                 }
                             }
                         }

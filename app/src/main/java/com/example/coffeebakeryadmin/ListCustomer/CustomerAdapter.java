@@ -37,8 +37,8 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Holder
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         Customer cu = (Customer) mCustomer.get(position);
         holder.hoten.setText(cu.getHoten());
-        holder.mail.setText(cu.getGmail() + "@gmail.com");
-        holder.diachi.setText(cu.getSonha() + " " + cu.getPhuong() + " " + cu.getQuan() + " " + cu.getThanhpho());
+        holder.mail.setText(cu.getGmail());
+        holder.diachi.setText(cu.getSonha());
         holder.sdt.setText(cu.getSdt());
     }
 

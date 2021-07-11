@@ -40,7 +40,7 @@ public class RecieptAdapter extends RecyclerView.Adapter<RecieptAdapter.Holder>{
         holder.hoadon.setText(re.getMadon());
         holder.ngaydat.setText(re.getNgaydat());
         holder.thanhtien.setText(re.getTongtien());
-        holder.nguoidung.setText(re.getNguoidung());
+        holder.nguoidung.setText(re.getHoten());
         holder.trangthai.setText(re.getTrangthai());
         String tt = re.getTrangthai();
         if(tt.contains("Đang xử lý")){
@@ -57,11 +57,7 @@ public class RecieptAdapter extends RecyclerView.Adapter<RecieptAdapter.Holder>{
                 Context context = view.getContext();
                 Intent intent = new Intent(context, DetailReceiptActivity.class);
                 intent.putExtra("MADON",re.getMadon());
-                intent.putExtra("MAGIOHANG",re.getMadon());
-                intent.putExtra("TONGTIEN",re.getTongtien());
-                intent.putExtra("NGAYDAT",re.getNgaydat());
                 intent.putExtra("TRANGTHAI",re.getTrangthai());
-                intent.putExtra("NGUOIDUNG",re.getNguoidung());
                 context.startActivity(intent);
 
             }

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.coffeebakeryadmin.List_Receipt.ListReceiptActivity;
 import com.example.coffeebakeryadmin.List_Receipt.Receipt;
 import com.example.coffeebakeryadmin.R;
+import com.example.coffeebakeryadmin.ThongBao;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,33 +43,30 @@ public class DetailReceiptActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_receipt);
         AnhXa();
         Intent intent = getIntent();
-        String gmail = intent.getStringExtra("NGUOIDUNG");
         String md = intent.getStringExtra("MADON");
-        String nd = intent.getStringExtra("NGAYDAT");
-        String tt = intent.getStringExtra("TONGTIEN");
         String trangthai = intent.getStringExtra("TRANGTHAI");
-        String mgh = intent.getStringExtra("MAGIOHANG");
-
-        madon.setText(md);
-        ngaydat.setText(nd);
-        thanhtien.setText(tt);
-
         listchitiet = new ArrayList<DetailReceipt>();
-        data.child("KHACHHANG").addListenerForSingleValueEvent(new ValueEventListener() {
+        data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
-                    String mail = snap.child("gmail").getValue().toString();
-                    if(mail.contains(gmail)){
-                        String hoten = snap.child("hoten").getValue().toString();
-                        String sdt = snap.child("sdt").getValue().toString();
-                        String sonha = snap.child("sonha").getValue().toString();
-                        String phuong = snap.child("phuong").getValue().toString();
-                        String quan = snap.child("quan").getValue().toString();
-                        String tp = snap.child("thanhpho").getValue().toString();
-                        ten_kh.setText(hoten);
-                        sdt_kh.setText(sdt);
-                        diachi.setText(sonha + ", " + phuong + ", " + quan + ", " + tp);
+                    String str_madon = snap.child("madon").getValue().toString();
+                    if(str_madon.contains(md)){
+                        String temp_hoten = snap.child("hoten").getValue().toString();
+                        String temp_sdt = snap.child("sdt").getValue().toString();
+                        String temp_sonha = snap.child("sonha").getValue().toString();
+                        String temp_ngaydat = snap.child("ngaydat").getValue().toString();
+                        String temp_tamtinh = snap.child("tamtinh").getValue().toString();
+                        String temp_ship = snap.child("ship").getValue().toString();
+                        String temp_tongcong = snap.child("tongtien").getValue().toString();
+                        ten_kh.setText(temp_hoten);
+                        sdt_kh.setText(temp_sdt);
+                        diachi.setText(temp_sonha);
+                        madon.setText(md);
+                        ngaydat.setText(temp_ngaydat);
+                        thanhtien.setText(temp_tamtinh);
+                        phigh.setText(temp_ship);
+                        tongcong.setText(temp_tongcong);
                     }
                 }
 
@@ -80,19 +78,19 @@ public class DetailReceiptActivity extends AppCompatActivity {
             }
         });
 
-        data.child("GioHang").child(gmail).child(md).addListenerForSingleValueEvent(new ValueEventListener() {
+        data.child("Đơn hàng").child("Chi tiết").child(md).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot snap : snapshot.getChildren()){
                     String giohang = snap.child("giohang").getValue().toString();
-                    if(giohang.contains(mgh)){
+                    if(giohang.contains(md)){
                         String link = snap.child("hinhanh").getValue().toString();
                         String sl = snap.child("soluong").getValue().toString();
                         String ten = snap.child("ten").getValue().toString();
                         String gia = snap.child("tongtien").getValue().toString();
-                        String temp_gia = gia.substring(0,gia.length()-2);
+
                         tongslmon += Integer.parseInt(sl);
-                        listchitiet.add(new DetailReceipt(link,sl,ten,temp_gia));
+                        listchitiet.add(new DetailReceipt(link,sl,ten,gia));
                     }
                     tongmon.setText(String.valueOf(tongslmon));
                     adapter = new DetailReceiptAdapter(listchitiet, DetailReceiptActivity.this);
@@ -108,16 +106,39 @@ public class DetailReceiptActivity extends AppCompatActivity {
 
             }
         });
-        tongcong.setText(String.valueOf(Integer.parseInt(thanhtien.getText().toString()) + Integer.parseInt(phigh.getText().toString())));
 
         chapnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(trangthai.contains("Đang xử lý")){
                     String temp_trangthai = "Hoàn thành";
-                    Receipt re = new Receipt(md,nd,tt,temp_trangthai,gmail);
-                    data.child("DonHang").child(md).setValue(re);
-                    Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã được phê duyệt!", Toast.LENGTH_SHORT).show();
+                    data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot datasnap : snapshot.getChildren()){
+                                Receipt re = datasnap.getValue(Receipt.class);
+                                if(re.getMadon().contains(md)){
+                                    re.setTrangthai(temp_trangthai);
+                                    data.child("Đơn hàng").child("Thông tin").child(md).setValue(re);
+                                    Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã được phê duyệt!", Toast.LENGTH_SHORT).show();
+
+                                    ThongBao noti = new ThongBao();
+                                    noti.setTieude("Thông báo xác nhận đơn hàng");
+                                    noti.setNoidung("Đơn hàng " + re.getMadon()+ " của bạn đã được xác nhận!");
+                                    noti.setUserid(re.getNguoidung());
+                                    data.child("Thông báo").child(noti.getTieude()).child(re.getMadon()).setValue(noti);
+
+                                    startActivity(new Intent(DetailReceiptActivity.this, ListReceiptActivity.class));
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
                 }
                 else Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã hoàn thành rồi!", Toast.LENGTH_SHORT).show();
             }
@@ -137,26 +158,24 @@ public class DetailReceiptActivity extends AppCompatActivity {
                         .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                data.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
+                                data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        String temp_trangthai = "Hủy đơn";
                                         for(DataSnapshot snap : snapshot.getChildren()){
-                                            String temp_madon = snap.child("madon").getValue().toString();
-                                            if(temp_madon.contains(md)){
-                                                String temp_nguoidung = snap.child("nguoidung").getValue().toString();
-                                                if(temp_nguoidung.contains(gmail)){
-                                                    String temp_trangthai = snap.child("trangthai").getValue().toString();
-                                                    if(temp_trangthai.contains("Hoàn thành")){
-                                                        Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã hoàn thành!", Toast.LENGTH_SHORT).show();
-                                                    } else {
-                                                        String temp_huybo = "Từ chối";
-                                                        Receipt re = new Receipt(md,nd,tt,temp_huybo,gmail);
-                                                        data.child("DonHang").child(md).setValue(re);
-                                                        Toast.makeText(DetailReceiptActivity.this, "Hủy đơn thành công!", Toast.LENGTH_SHORT).show();
-                                                        Intent intent1 = new Intent(DetailReceiptActivity.this, ListReceiptActivity.class);
-                                                        startActivity(intent1);
-                                                    }
-                                                }
+                                            Receipt receipt = snap.getValue(Receipt.class);
+                                            if(receipt.getMadon().contains(md)){
+                                                receipt.setTrangthai(temp_trangthai);
+                                                data.child("Đơn hàng").child("Thông tin").child(md).setValue(receipt);
+                                                Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã được hủy bỏ!", Toast.LENGTH_SHORT).show();
+
+                                                ThongBao noti = new ThongBao();
+                                                noti.setTieude("Thông báo xác nhận đơn hàng");
+                                                noti.setNoidung("Đơn hàng " + receipt.getMadon()+ " của bạn đã bị hủy bỏ!");
+                                                noti.setUserid(receipt.getNguoidung());
+                                                data.child("Thông báo").child(noti.getTieude()).child(receipt.getMadon()).setValue(noti);
+
+                                                startActivity(new Intent(DetailReceiptActivity.this, ListReceiptActivity.class));
                                             }
                                         }
                                     }

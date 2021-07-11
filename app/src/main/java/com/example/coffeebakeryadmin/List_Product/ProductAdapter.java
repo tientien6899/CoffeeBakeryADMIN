@@ -43,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder>{
         holder.luotmua.setText(pr.getLuotMua() + "");
         if(pr.getSPMoi())
             holder.spmoi.setChecked(true);
+        holder.spmoi.setEnabled(false);
 
         holder.giakm.setText(pr.getGiaKM());
         Glide.with(holder.hinhanh.getContext()).load(pr.getLink()).into(holder.hinhanh);

@@ -74,7 +74,7 @@ public class MonthReportActivity extends AppCompatActivity {
         xem_thang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mdata.child("DonHang").addListenerForSingleValueEvent(new ValueEventListener() {
+                mdata.child("Đơn hàng").child("Thông tin").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String ngay = thangreport.getText().toString();
@@ -83,7 +83,8 @@ public class MonthReportActivity extends AppCompatActivity {
                             String string_ngaydat = snap.child("ngaydat").getValue().toString();
                             if(string_ngaydat.contains(ngay)){
                                 String string_tongtien = snap.child("tongtien").getValue().toString();
-                                tong += Integer.parseInt(string_tongtien);
+                                int temp_tongtien = Integer.parseInt(string_tongtien.replace(".",""));
+                                tong += temp_tongtien;
                             }
                         }
 
