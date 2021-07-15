@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ import java.util.Calendar;
 public class AddBookActivity extends AppCompatActivity {
 
     EditText tieude, noidung;
-    ImageView save, back;
+    Button save;
     private DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -75,20 +76,11 @@ public class AddBookActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(view.getContext(), BookActivity.class);
-                startActivity(intent1);
-            }
-        });
-
     }
 
     private void AnhXa() {
         tieude = findViewById(R.id.detailbook_tieude);
         noidung = findViewById(R.id.detailbook_noidung);
         save = findViewById(R.id.img_savebook);
-        back = findViewById(R.id.img_Back_to_book);
     }
 }

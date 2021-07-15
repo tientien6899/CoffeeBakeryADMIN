@@ -31,7 +31,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="Xin chào, "
-            android:textColor="@color/black"
+            android:fontFamily="@font/nunito_bold"
             android:textSize="15dp" />
 
         <TextView
@@ -43,6 +43,8 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:hint="Huỳnh Mậu Quý "
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/gray"
             android:textSize="15dp" />
 
         <ImageView
@@ -67,7 +69,7 @@
         android:text="Bảng điều khiển"
         android:textColor="#6A6262"
         android:textSize="32dp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/nunito_bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,9 +100,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thông tin cửa hàng"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="14dp"  />
             </LinearLayout>
 
             <View
@@ -124,9 +126,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quản lý sản phẩm"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -154,9 +156,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Chính sách cửa hàng"
-                    android:textColor="@color/black"
                     android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold" />
             </LinearLayout>
 
             <View
@@ -180,9 +182,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quản lý bài viết"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="14dp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -210,9 +212,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Poster quảng cáo"
-                    android:textColor="@color/black"
                     android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"/>
             </LinearLayout>
 
             <View
@@ -236,9 +238,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quản lý khách hàng"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -266,9 +268,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Báo cáo thống kê"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="14dp"/>
             </LinearLayout>
 
             <View
@@ -292,9 +294,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quản lý đơn hàng"
-                    android:textColor="@color/black"
-                    android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="14dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

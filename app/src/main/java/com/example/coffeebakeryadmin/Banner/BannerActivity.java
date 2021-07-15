@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -28,7 +29,8 @@ import com.google.firebase.storage.UploadTask;
 
 public class BannerActivity extends AppCompatActivity {
 
-    ImageView imgposter, addposter, back;
+    Button addposter;
+    ImageView imgposter;
     EditText nameposter;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -120,21 +122,12 @@ public class BannerActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1 = new Intent(view.getContext(), ListBannerActivity.class);
-                startActivity(intent1);
-            }
-        });
-
     }
 
     private void AnhXa() {
         imgposter = (ImageView) findViewById(R.id.img_HinhAnhPoster);
-        addposter = (ImageView) findViewById(R.id.btn_LuuPoster);
+        addposter = (Button) findViewById(R.id.btn_LuuPoster);
         nameposter = (EditText) findViewById(R.id.edt_TenPoster);
-        back = findViewById(R.id.img_Back_to_banner);
     }
 
     @Override

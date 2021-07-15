@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Infomation.AddInfoActivity"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Infomation.AddInfoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,10 +18,10 @@
             android:layout_marginLeft="22dp"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:text="Thông tin tài khoản"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Thông tin cửa hàng"
             android:textColor="@color/green"
-            android:textSize="23sp"
-            android:textStyle="bold" />
+            android:textSize="23sp" />
 
         <Button
             android:id="@+id/btn_Dongy"
@@ -31,6 +30,7 @@
             android:layout_gravity="bottom|right"
             android:layout_marginRight="22dp"
             android:background="@drawable/button_luu"
+            android:fontFamily="@font/nunito_bold"
             android:text="Lưu"
             android:textAllCaps="false"
             android:textColor="@color/blue"
@@ -51,8 +51,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/nunito"
                 android:text="Tên cửa hàng"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="17dp" />
 
             <EditText
@@ -63,10 +64,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/bg_textfield"
-                android:inputType="text"
+                android:fontFamily="@font/nunito"
                 android:hint="Nhập tên cửa hàng ..."
+                android:inputType="text"
                 android:paddingLeft="20dp"
-                android:textColor="@color/black"
+                android:paddingRight="20dp"
+                android:textColor="@color/gray"
                 android:textSize="16dp" />
 
             <TextView
@@ -74,8 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/nunito"
                 android:text="Email"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="17dp" />
 
             <EditText
@@ -86,10 +90,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/bg_textfield"
+                android:fontFamily="@font/nunito"
                 android:hint="Nhập email ..."
-                android:paddingLeft="20dp"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/black"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/gray"
                 android:textSize="16dp" />
 
             <TextView
@@ -97,8 +103,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/nunito"
                 android:text="Địa chỉ"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="17dp" />
 
             <EditText
@@ -109,11 +116,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/bg_textfield"
+                android:fontFamily="@font/nunito"
                 android:hint="Nhập địa chỉ ..."
                 android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="16dp" />
 
             <TextView
@@ -121,8 +129,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/nunito"
                 android:text="Số điện thoại"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="17dp" />
 
             <EditText
@@ -133,10 +142,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/bg_textfield"
+                android:fontFamily="@font/nunito"
                 android:hint="Nhập số điện thoại ..."
-                android:paddingLeft="20dp"
-                android:textColor="@color/black"
                 android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/gray"
                 android:textSize="16dp" />
 
             <TextView
@@ -144,8 +155,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/nunito"
                 android:text="Ghi chú"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="17dp" />
 
             <EditText
@@ -156,10 +168,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="22dp"
                 android:background="@drawable/bg_textfield"
+                android:fontFamily="@font/nunito"
                 android:hint="Nhập ghi chú, lịch làm việc ..."
-                android:paddingLeft="20dp"
-                android:textColor="@color/black"
                 android:inputType="textMultiLine"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/gray"
                 android:textSize="16dp" />
 
         </LinearLayout>

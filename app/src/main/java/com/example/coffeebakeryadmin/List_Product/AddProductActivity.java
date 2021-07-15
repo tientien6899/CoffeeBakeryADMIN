@@ -39,8 +39,8 @@ import java.util.Calendar;
 
 public class AddProductActivity extends AppCompatActivity {
 
-    ImageView hinhanhsp, luusp, backsp ;
-    ImageButton backhome;
+    Button luusp;
+    ImageView hinhanhsp;
     TextView danhmucsp, ten_giaM, ten_giaL, txt_giam, txt_gial;
     EditText tensp, masp, giaS, giaM, giaL, giaKM, mota;
     CheckBox sphammoi;
@@ -137,14 +137,6 @@ public class AddProductActivity extends AppCompatActivity {
                 });
 
                 d.show();
-            }
-        });
-
-        backsp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(AddProductActivity.this, ListProductActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -292,7 +284,6 @@ public class AddProductActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        backsp = (ImageView) findViewById(R.id.img_BackDSSP);
         danhmucsp = (TextView) findViewById(R.id.txt_DanhmucSP);
         tensp = (EditText) findViewById(R.id.edt_TenSP);
         masp = (EditText) findViewById(R.id.edt_MaSP);
@@ -302,7 +293,7 @@ public class AddProductActivity extends AppCompatActivity {
         giaKM = (EditText) findViewById(R.id.edt_GiaKM);
         mota = (EditText) findViewById(R.id.edt_MotaSP);
         hinhanhsp = (ImageView) findViewById(R.id.img_HinhanhSP);
-        luusp = (ImageView) findViewById(R.id.btn_LuuSP);
+        luusp = (Button) findViewById(R.id.btn_LuuSP);
         ten_giaM = findViewById(R.id.txt_GiaM);
         ten_giaL = findViewById(R.id.txt_GiaL);
         sphammoi = findViewById(R.id.chb_Spmoi);

@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Banner.BannerActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Banner.BannerActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/img_Back_to_banner"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
-
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="Banner quảng cáo"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/nunito_bold"
+            android:text="Thêm poster quảng cáo"
+            android:textColor="@color/green"
+            android:textSize="23sp" />
 
-        <ImageView
+        <Button
             android:id="@+id/btn_LuuPoster"
-            android:layout_width="30dp"
+            android:layout_width="80dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/check" />
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/button_luu"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Lưu"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:textSize="17sp" />
     </LinearLayout>
 
     <ScrollView
@@ -62,8 +58,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
-                android:text="Tên poster sản phẩm"
-                android:textColor="@color/black"
+                android:fontFamily="@font/nunito"
+                android:text="Tên poster"
+                android:textColor="@color/gray"
                 android:textSize="17dp" />
 
             <EditText
@@ -74,10 +71,11 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/bg_textfield"
+                android:fontFamily="@font/nunito"
                 android:hint="Nhập tên post sản phẩm ..."
                 android:inputType="text"
                 android:paddingLeft="20dp"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 android:textSize="16dp" />
 
         </LinearLayout>
