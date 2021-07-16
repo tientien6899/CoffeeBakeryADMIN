@@ -24,7 +24,6 @@ import me.pushy.sdk.Pushy;
 import static com.example.coffeebakeryadmin.AdminActivity.mData;
 
 public class ListReceiptActivity extends AppCompatActivity {
-    ImageView back;
     RecyclerView recyclerView;
     RecieptAdapter adapter;
     ArrayList<Receipt> listReceipt;
@@ -53,14 +52,6 @@ public class ListReceiptActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ListReceiptActivity.this, AdminActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -97,7 +88,6 @@ public class ListReceiptActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        back = (ImageView) findViewById(R.id.btn_BackReceipt);
         recyclerView = (RecyclerView) findViewById(R.id.list_receipt);
         timkiem = findViewById(R.id.searchViewDonHang);
     }

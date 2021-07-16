@@ -15,7 +15,8 @@
         android:gravity="center|left"
         android:paddingLeft="10dp"
         android:text="A"
-        android:textStyle="bold" />
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/gray"/>
 
     <ImageView
         android:id="@+id/book_deletebook"

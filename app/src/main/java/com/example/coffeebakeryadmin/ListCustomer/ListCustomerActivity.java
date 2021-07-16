@@ -27,7 +27,6 @@ public class ListCustomerActivity extends AppCompatActivity {
     private DatabaseReference mData;
     ArrayList<Customer> arrayList;
     SearchView timkiem;
-    ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,19 +70,10 @@ public class ListCustomerActivity extends AppCompatActivity {
             });
         }
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ListCustomerActivity.this, AdminActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
     private void AnhXa() {
         danhsach = (RecyclerView) findViewById(R.id.list_customer);
         timkiem = (SearchView) findViewById(R.id.searchViewCustomer);
-        back = (ImageView) findViewById(R.id.btn_BackCustomer);
     }
 
     private void search(String s){

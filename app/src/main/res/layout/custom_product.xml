@@ -34,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Trà đào đá xay"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito_bold"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
@@ -44,6 +45,7 @@
                 android:buttonTint="@color/green"
                 android:text="Sản phẩm mới"
                 android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
                 android:textSize="11sp" />
 
         </LinearLayout>
@@ -61,8 +63,8 @@
                 android:layout_gravity="right"
                 android:text="65.000 đ"
                 android:textColor="@color/green"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/nunito_bold"
+                android:textSize="15sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -75,6 +77,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:text="Giá KM"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"
                     android:textSize="11sp" />
 
                 <TextView
@@ -83,8 +87,8 @@
                     android:layout_height="wrap_content"
                     android:text="10%"
                     android:textColor="@color/green"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_bold"
+                    android:textSize="13sp" />
 
             </LinearLayout>
 
@@ -99,7 +103,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:text="Đã bán"
-                    android:textSize="11sp" />
+                    android:textSize="11sp"
+                    android:textColor="@color/gray"
+                    android:fontFamily="@font/nunito"/>
 
                 <TextView
                     android:id="@+id/txt_luotmua"
@@ -108,7 +114,7 @@
                     android:text="1080"
                     android:textColor="@color/green"
                     android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/nunito_bold" />
 
             </LinearLayout>
 

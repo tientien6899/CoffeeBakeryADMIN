@@ -35,7 +35,6 @@ import java.util.List;
 
 public class MonthReportActivity extends AppCompatActivity {
 
-    ImageView back;
     TextView thangreport;
     Button xem_thang;
     AnyChartView monthreport;
@@ -137,18 +136,9 @@ public class MonthReportActivity extends AppCompatActivity {
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
         cartesian.interactivity().hoverMode(HoverMode.BY_X);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MonthReportActivity.this, ReportActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void AnhXa() {
-        back = (ImageView) findViewById(R.id.btn_BackReportMonth);
         thangreport = (TextView) findViewById(R.id.report_monthreport);
         xem_thang = (Button) findViewById(R.id.report_xemreportthang);
         monthreport = (AnyChartView) findViewById(R.id.any_chart_view_thang);

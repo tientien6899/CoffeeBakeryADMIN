@@ -41,7 +41,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Cà phê - Trà"
+                    android:textColor="@color/gray"
                     android:textSize="17sp" />
 
                 <RadioButton
@@ -50,7 +52,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="7dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Đá xay"
+                    android:textColor="@color/gray"
                     android:textSize="17sp" />
 
                 <RadioButton
@@ -59,7 +63,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="7dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Nước ép - Sinh tố"
+                    android:textColor="@color/gray"
                     android:textSize="17sp" />
 
                 <RadioButton
@@ -68,7 +74,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="7dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Thức ăn"
+                    android:textColor="@color/gray"
                     android:textSize="17sp" />
 
                 <RadioButton
@@ -77,7 +85,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="7dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Topping"
+                    android:textColor="@color/gray"
                     android:textSize="17sp" />
             </RadioGroup>
         </LinearLayout>
@@ -93,10 +103,12 @@
                 android:id="@+id/btn_XacnhanDM"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:background="@drawable/bg_button"
+                android:background="@drawable/button_xanh"
                 android:text="Xác nhận"
                 android:textColor="@color/white"
-                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textSize="17sp"
+                android:fontFamily="@font/nunito_bold"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

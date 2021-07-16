@@ -37,8 +37,8 @@ public class DetailPostActivity extends AppCompatActivity {
 
     EditText tieude, noidung;
     TextView ngaydang;
-    ImageView hinhanh, deletePost, back;
-    Button updatePost;
+    ImageView hinhanh;
+    Button updatePost, deletePost;
     FirebaseStorage storage;
     StorageReference storageReference;
     public Uri path;
@@ -174,14 +174,6 @@ public class DetailPostActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailPostActivity.this, ListPostActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void AnhXa() {
@@ -191,7 +183,6 @@ public class DetailPostActivity extends AppCompatActivity {
         ngaydang = findViewById(R.id.detailpost_ngaydang);
         updatePost = findViewById(R.id.img_UpdatePost);
         deletePost = findViewById(R.id.img_DeletePost);
-        back = findViewById(R.id.img_BackDSBV);
     }
 
     @Override

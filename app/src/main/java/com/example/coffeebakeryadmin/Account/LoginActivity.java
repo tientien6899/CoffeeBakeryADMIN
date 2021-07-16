@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
     EditText username, password;
     Button dangnhap;
-    TextView quenmatkhau;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         AnhXa();
-
-        quenmatkhau.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                startActivity(intent);
-            }
-        });
 
         mData.child("Admin").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -83,6 +74,5 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.edt_usernameDN);
         password = findViewById(R.id.edt_passwordDN);
         dangnhap = findViewById(R.id.btn_Dangnhap);
-        quenmatkhau = findViewById(R.id.txt_QuenMK);
     }
 }

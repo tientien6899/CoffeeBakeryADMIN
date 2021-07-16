@@ -3,7 +3,7 @@ package com.example.coffeebakeryadmin.Banner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +27,8 @@ public class ListBannerActivity extends AppCompatActivity {
     private DatabaseReference mData;
     ArrayList<Banner> arrayList;
     SearchView timkiem;
-    ImageView addposter, back;
+    Button addposter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class ListBannerActivity extends AppCompatActivity {
         mData.child("Poster").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()){
+                for (DataSnapshot snap : snapshot.getChildren()) {
                     Banner bn = snap.getValue(Banner.class);
                     arrayList.add(bn);
                 }
@@ -56,7 +57,7 @@ public class ListBannerActivity extends AppCompatActivity {
             }
         });
 
-        if(timkiem != null){
+        if (timkiem != null) {
             timkiem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String s) {
@@ -74,15 +75,7 @@ public class ListBannerActivity extends AppCompatActivity {
         addposter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),BannerActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AdminActivity.class);
+                Intent intent = new Intent(view.getContext(), BannerActivity.class);
                 startActivity(intent);
             }
         });
@@ -90,20 +83,19 @@ public class ListBannerActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        back = findViewById(R.id.btn_BackPoster);
-        addposter = (ImageView) findViewById(R.id.btn_AddPoster);
+        addposter = (Button) findViewById(R.id.btn_AddPoster);
         danhsach = (RecyclerView) findViewById(R.id.rv_ListPoster);
         timkiem = (SearchView) findViewById(R.id.searchViewPoster);
     }
 
-    private void search(String s){
+    private void search(String s) {
         ArrayList<Banner> list = new ArrayList<>();
-        for(Banner obj : arrayList){
-            if(obj.getTen().toLowerCase().contains(s.toLowerCase())){
+        for (Banner obj : arrayList) {
+            if (obj.getTen().toLowerCase().contains(s.toLowerCase())) {
                 list.add(obj);
             }
         }
-        BannerAdapter adapter1 = new BannerAdapter(list,ListBannerActivity.this);
+        BannerAdapter adapter1 = new BannerAdapter(list, ListBannerActivity.this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ListBannerActivity.this);
         danhsach.setAdapter(adapter1);
         danhsach.setLayoutManager(linearLayoutManager);

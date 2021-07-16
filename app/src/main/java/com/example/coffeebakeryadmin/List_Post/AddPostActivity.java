@@ -12,6 +12,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -32,7 +33,8 @@ import java.util.Calendar;
 
 public class AddPostActivity extends AppCompatActivity {
 
-    ImageView img_backdsbv, addpost, imgpost;
+    Button  addpost;
+    ImageView imgpost;
     EditText tieude, noidung;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -128,14 +130,6 @@ public class AddPostActivity extends AppCompatActivity {
             }
         });
 
-        img_backdsbv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AddPostActivity.this, ListPostActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     @Override
@@ -150,8 +144,7 @@ public class AddPostActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        img_backdsbv = findViewById(R.id.img_BackDSBV);
-        addpost = (ImageView) findViewById(R.id.img_addPost);
+        addpost = (Button) findViewById(R.id.img_addPost);
         tieude = findViewById(R.id.edt_TieuDePost);
         noidung = findViewById(R.id.edt_NoiDungPost);
         imgpost = findViewById(R.id.img_HinhanhPost);

@@ -1,10 +1,5 @@
 package com.example.coffeebakeryadmin.List_Product;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,16 +10,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 import com.example.coffeebakeryadmin.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -38,9 +37,8 @@ public class DetailProductActivity extends AppCompatActivity {
     EditText ten, ma, s, m, l, km, mt;
     TextView dm;
     ImageView img;
-    Button capnhat;
+    Button capnhat, xoa;
     CheckBox sanphammoi;
-    ImageButton xoa, backdssp;
     FirebaseStorage storage;
     StorageReference storageReference;
     private Uri pathchitiet;
@@ -71,7 +69,7 @@ public class DetailProductActivity extends AppCompatActivity {
         String KM = intent.getStringExtra("GIAKM");
         String link = intent.getStringExtra("LINK");
         String nDung = intent.getStringExtra("MOTA");
-        boolean sphamMoi = intent.getBooleanExtra("SPMOI",true);
+        boolean sphamMoi = intent.getBooleanExtra("SPMOI", true);
         String mua = intent.getStringExtra("LUOTMUA");
         String thich = intent.getStringExtra("LUOTTHICH");
 
@@ -85,7 +83,7 @@ public class DetailProductActivity extends AppCompatActivity {
         Glide.with(this).load(link).into(img);
         img.setBackgroundColor(Color.WHITE);
         mt.setText(nDung + "");
-        if(sphamMoi)
+        if (sphamMoi)
             sanphammoi.setChecked(true);
 
         img.setOnClickListener(new View.OnClickListener() {
@@ -94,15 +92,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 Intent intent1 = new Intent();
                 intent1.setType("image/*");
                 intent1.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent1,22);
-            }
-        });
-
-        backdssp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailProductActivity.this, ListProductActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent1, 22);
             }
         });
 
@@ -116,7 +106,7 @@ public class DetailProductActivity extends AppCompatActivity {
                 builder.setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        if(pathchitiet != null){
+                        if (pathchitiet != null) {
                             DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
                             mData.child("SanPham").child(maSP).removeValue();
                             mData.child(dmuc).child(maSP).removeValue();
@@ -133,14 +123,14 @@ public class DetailProductActivity extends AppCompatActivity {
                             sp.giaL = l.getText().toString().trim();
                             sp.giaKM = km.getText().toString().trim();
                             sp.mota = mt.getText().toString().trim();
-                            if(sanphammoi.isChecked())
+                            if (sanphammoi.isChecked())
                                 sp.spmoi = true;
                             else
                                 sp.spmoi = false;
                             sp.ngaydang = ngay;
 
                             StorageReference ref1 = storageReference.child("Image").child(sp.getDanhmuc()).child(sp.getTensp() + ".png");
-                            final ProgressDialog progressDialog= new ProgressDialog(DetailProductActivity.this);
+                            final ProgressDialog progressDialog = new ProgressDialog(DetailProductActivity.this);
                             progressDialog.setTitle("Uploading...");
                             progressDialog.show();
                             ref1.putFile(pathchitiet).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -165,7 +155,7 @@ public class DetailProductActivity extends AppCompatActivity {
                                         @Override
                                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                                             double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                                            progressDialog.setMessage("Uploaded " + (int)progress + "%");
+                                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
                                         }
                                     });
                         }
@@ -234,8 +224,7 @@ public class DetailProductActivity extends AppCompatActivity {
         img = (ImageView) findViewById(R.id.img_chitietHinhanhSP);
         mt = (EditText) findViewById(R.id.edt_chitietMotaSP);
         capnhat = (Button) findViewById(R.id.btn_CapnhatSP);
-        xoa = (ImageButton) findViewById(R.id.btn_Xoa);
-        backdssp = (ImageButton) findViewById(R.id.img_BackDSSP);
+        xoa = (Button) findViewById(R.id.btn_Xoa);
         sanphammoi = (CheckBox) findViewById(R.id.chb_spmoi);
     }
 }

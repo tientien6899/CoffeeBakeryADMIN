@@ -37,7 +37,6 @@ import java.util.List;
 
 public class QuarReportActivity extends AppCompatActivity {
 
-    ImageView back;
     Button xem_quy;
     TextView quyreport;
     AnyChartView quarreport;
@@ -126,19 +125,9 @@ public class QuarReportActivity extends AppCompatActivity {
                 });
             }
         });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuarReportActivity.this, ReportActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void AnhXa() {
-        back = (ImageView) findViewById(R.id.btn_BackReportQuar);
         xem_quy = (Button) findViewById(R.id.report_xemreportquy);
         quyreport = (TextView) findViewById(R.id.report_yearreport);
         quarreport = (AnyChartView) findViewById(R.id.any_chart_view_quy);

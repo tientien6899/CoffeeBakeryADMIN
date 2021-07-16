@@ -12,7 +12,7 @@
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         android:maxDate="31"
-        android:minDate="1"/>
+        android:minDate="1" />
 
     <Button
         android:id="@+id/btn_xemthongkengay"
@@ -21,6 +21,8 @@
         android:text="Xác nhận"
         android:textColor="@color/white"
         android:textSize="17dp"
-        android:background="@drawable/bg_button"/>
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/nunito_bold"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="15dp"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:padding="5dp"
-    android:background="@drawable/bg_textfield">
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,141 +14,144 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
-                android:text="Mã hóa đơn: "
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txt_MaHoaDon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
-                android:hint="123456789abcxyz"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp">
-
-            <TextView
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
-                android:text="Thời gian: "
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txt_ThoiGianDat"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
-                android:hint="06/08/1999 22:45:23"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center|left"
+                android:text="Mã hóa đơn: "
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txt_MaHoaDon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:gravity="center|left"
+                android:hint="123456789abcxyz"
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center|left"
+                android:text="Thời gian: "
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/txt_ThoiGianDat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:gravity="center|left"
+                android:hint="06/08/1999 22:45:23"
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
                 android:gravity="center|left"
                 android:text="Tổng tiền: "
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/txt_TongTien"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
                 android:gravity="center|left"
                 android:hint="75.000"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"
+                android:textSize="16dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
                 android:gravity="center"
                 android:text="đ"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"
+                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
                 android:gravity="center|left"
                 android:text="Khách hàng: "
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/txt_TenKhachHang"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
                 android:gravity="center|left"
-                android:text="ABCĐSD"
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:hint="ABCĐSD"
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
 
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
                 android:gravity="center|left"
                 android:text="Trạng thái: "
-                android:textSize="15dp"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/txt_TrangThai"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
                 android:gravity="center|left"
                 android:text="Dang xu ly"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-
+                android:textColor="@color/gray"
+                android:textSize="15dp" />
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/whitegray" />
 </LinearLayout>

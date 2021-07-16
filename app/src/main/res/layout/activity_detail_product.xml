@@ -9,35 +9,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/img_BackDSSP"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
-
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:fontFamily="@font/nunito_bold"
             android:text="Chi tiết sản phẩm"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            android:textStyle="bold" />
+            android:textColor="@color/green"
+            android:textSize="23sp" />
 
-        <ImageButton
-            android:id="@+id/btn_Xoa"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/delete" />
+        <Button
+            android:id="@+id/btn_CapnhatSP"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/button_luu"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Lưu"
+            android:textAllCaps="false"
+            android:textColor="@color/blue"
+            android:textSize="17sp" />
     </LinearLayout>
 
     <ScrollView
@@ -65,15 +62,19 @@
                     android:id="@+id/chb_spmoi"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
-                    android:text="Sản phẩm mới"/>
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/nunito"
+                    android:text="Sản phẩm mới"
+                    android:textColor="@color/gray" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Danh mục sản phẩm"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <TextView
@@ -84,10 +85,12 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Chọn danh mục ..."
                     android:paddingLeft="20dp"
                     android:paddingTop="13dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
                 <TextView
@@ -95,8 +98,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Mã sản phẩm"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -107,10 +111,12 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Nhập mã sản phẩm ..."
                     android:inputType="text"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
                 <TextView
@@ -118,8 +124,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Tên sản phẩm"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -130,10 +137,11 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Nhập tên sản phẩm ..."
                     android:inputType="text"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
                 <TextView
@@ -141,8 +149,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Giá size S"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -153,10 +162,11 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Nhập giá size S ..."
                     android:inputType="number"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
                 <TextView
@@ -164,8 +174,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Giá size M"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -187,8 +198,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Giá size L"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -199,10 +211,12 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Nhập giá size L ..."
                     android:inputType="number"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
                 <TextView
@@ -210,8 +224,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Giá khuyến mãi"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -222,10 +237,12 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Nhập giá khuyến mãi ..."
                     android:inputType="number"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
                 <TextView
@@ -233,8 +250,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
+                    android:fontFamily="@font/nunito"
                     android:text="Mô tả"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="17dp" />
 
                 <EditText
@@ -246,31 +264,32 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/bg_textfield"
+                    android:fontFamily="@font/nunito"
                     android:hint="Nhập mô tả sản phẩm ..."
                     android:inputType="textMultiLine"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/black"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/gray"
                     android:textSize="16dp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:gravity="center">
-
                 <Button
-                    android:id="@+id/btn_CapnhatSP"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/bg_button"
-                    android:text="Cập nhật"
+                    android:id="@+id/btn_Xoa"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/button_do"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Xóa sản phẩm"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/red"
+                    android:textSize="18sp" />
+
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

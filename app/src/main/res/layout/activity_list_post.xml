@@ -10,35 +10,54 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/img_BackDSBV"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/ic_outline_keyboard_backspace_24" />
-
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Danh sách bài viết"
+            android:textColor="@color/green"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/img_AddDSBV"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/button_them"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Thêm"
+            android:textAllCaps="false"
+            android:textColor="@color/green"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <SearchView
+            android:id="@+id/searchViewPost"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Danh sách bài viết"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            android:textStyle="bold" />
+            android:background="@drawable/search"
+            android:inputType="text"
+            android:queryHint="Tìm kiếm ..."
+            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
+            android:textSize="9sp"
+            android:fontFamily="@font/nunito"/>
 
-        <ImageView
-            android:id="@+id/img_AddDSBV"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/add" />
     </LinearLayout>
 
     <LinearLayout
@@ -49,20 +68,10 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/searchViewPost"
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/bg_textfield"
-            app:iconifiedByDefault="false"
-            app:queryHint="Search..."/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_post"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
     </LinearLayout>
 
 </LinearLayout>

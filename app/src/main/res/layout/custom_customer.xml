@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_textfield"
         android:orientation="horizontal">
 
@@ -19,9 +19,9 @@
 
             <ImageView
                 android:id="@+id/img_HinhKH"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_margin="10dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
                 android:background="@mipmap/ic_launcher" />
 
         </LinearLayout>
@@ -39,31 +39,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nguyễn Thị Cẩm Tiên"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito_bold"
+                android:textSize="15sp"/>
 
             <TextView
                 android:id="@+id/txt_EmailKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="tientien.6899@gmail.com"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="13.5sp" />
 
             <TextView
                 android:id="@+id/txt_DiachiKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="67 Bờ Bao Tân Thắng, Sơn Kỳ, Tân Phú, TPHCM"
-                android:textSize="15sp" />
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="13.5sp" />
 
             <TextView
                 android:id="@+id/txt_SDTKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="0838532354"
-                android:textSize="15sp" />
+                android:textColor="@color/gray"
+                android:fontFamily="@font/nunito"
+                android:textSize="13.5sp"/>
 
         </LinearLayout>
     </LinearLayout>
