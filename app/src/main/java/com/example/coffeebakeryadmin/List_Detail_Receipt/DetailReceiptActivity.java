@@ -30,7 +30,6 @@ import java.util.ArrayList;
 public class DetailReceiptActivity extends AppCompatActivity {
     TextView ten_kh, sdt_kh, diachi, madon, ngaydat, thanhtien, tongmon, tongcong, phigh;
     RecyclerView recyclerView;
-    ImageView back;
     Button chapnhan, huybo;
     DetailReceiptAdapter adapter;
     ArrayList<DetailReceipt> listchitiet;
@@ -190,14 +189,6 @@ public class DetailReceiptActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailReceiptActivity.this, ListReceiptActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
 
@@ -214,6 +205,5 @@ public class DetailReceiptActivity extends AppCompatActivity {
         phigh = (TextView) findViewById(R.id.txt_Phigiaohang);
         chapnhan = (Button) findViewById(R.id.btn_chapnhan);
         huybo = (Button) findViewById(R.id.btn_huybo);
-        back = findViewById(R.id.img_BackDSDH);
     }
 }

@@ -36,7 +36,6 @@ import java.util.List;
 
 public class DailyReportActivity extends AppCompatActivity {
 
-    ImageView back;
     TextView ngayreport;
     Button xem;
     AnyChartView dailyreport;
@@ -140,19 +139,9 @@ public class DailyReportActivity extends AppCompatActivity {
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
         cartesian.interactivity().hoverMode(HoverMode.BY_X);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ReportActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 
     private void AnhXa() {
-        back = (ImageView) findViewById(R.id.btn_BackReport);
         ngayreport = (TextView) findViewById(R.id.report_datereport);
         xem = (Button) findViewById(R.id.report_xemreport);
         dailyreport = (AnyChartView) findViewById(R.id.any_chart_view);

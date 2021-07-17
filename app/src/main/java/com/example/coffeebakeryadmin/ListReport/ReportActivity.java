@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ReportActivity extends AppCompatActivity {
 
-    ImageView back;
     TextView tongdon, tongdoanhthu;
     LinearLayout dailyreport, monthreport, quarreport;
     private DatabaseReference mdata = FirebaseDatabase.getInstance().getReference();
@@ -98,18 +97,9 @@ public class ReportActivity extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AdminActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void AnhXa() {
-        back = findViewById(R.id.btn_BackReport);
         tongdon = (TextView) findViewById(R.id.txt_TongDonHang);
         tongdoanhthu = (TextView) findViewById(R.id.txt_TongDoanhThu);
         dailyreport = (LinearLayout) findViewById(R.id.report_dailyreport);

@@ -3,6 +3,7 @@ package com.example.coffeebakeryadmin.List_Product;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 
 public class ListProductActivity extends AppCompatActivity {
 
-    ImageView back, add;
+    Button add;
     Intent intent;
     RecyclerView danhsach;
     ProductAdapter adapter;
@@ -83,21 +84,11 @@ public class ListProductActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(view.getContext(), AdminActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void AnhXa() {
-        back = findViewById(R.id.btn_BackDSSP);
-        add = (ImageView) findViewById(R.id.btn_AddProduct);
+        add = (Button) findViewById(R.id.btn_AddProduct);
         timkiem = (SearchView) findViewById(R.id.searchView) ;
-        add = (ImageView) findViewById(R.id.btn_AddProduct);
         danhsach = (RecyclerView) findViewById(R.id.rv_ListProduct);
     }
 
