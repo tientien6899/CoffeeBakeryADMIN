@@ -45,9 +45,11 @@ public class RecieptAdapter extends RecyclerView.Adapter<RecieptAdapter.Holder>{
         String tt = re.getTrangthai();
         if(tt.contains("Đang xử lý")){
             holder.trangthai.setTextColor(Color.BLUE);
-        } else if(tt.contains("Hoàn thành")){
+        } else if(tt.contains("Đang chuẩn bị đơn")){
             holder.trangthai.setTextColor(Color.GREEN);
-        }else{
+        }else if(tt.contains("Đơn hàng đang được giao")){
+            holder.trangthai.setTextColor(Color.YELLOW);
+        } else {
             holder.trangthai.setTextColor(Color.RED);
         }
 
@@ -58,6 +60,7 @@ public class RecieptAdapter extends RecyclerView.Adapter<RecieptAdapter.Holder>{
                 Intent intent = new Intent(context, DetailReceiptActivity.class);
                 intent.putExtra("MADON",re.getMadon());
                 intent.putExtra("TRANGTHAI",re.getTrangthai());
+                intent.putExtra("DRIVERID",re.getDriverid());
                 context.startActivity(intent);
 
             }

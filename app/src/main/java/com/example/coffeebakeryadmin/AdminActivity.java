@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.coffeebakeryadmin.Account.LoginActivity;
 import com.example.coffeebakeryadmin.Banner.ListBannerActivity;
+import com.example.coffeebakeryadmin.Drivers.DriverActivity;
 import com.example.coffeebakeryadmin.Infomation.InfomationActivity;
 import com.example.coffeebakeryadmin.ListBook.BookActivity;
 import com.example.coffeebakeryadmin.ListCustomer.ListCustomerActivity;
@@ -27,7 +28,7 @@ import static com.example.coffeebakeryadmin.Account.LoginActivity.user;
 
 public class AdminActivity extends AppCompatActivity {
 
-    LinearLayout cv_dssp, cv_qlbv, cv_qlkh, cv_qldh, cv_bqc, cv_ttch, cv_bctk, cv_csdk;
+    LinearLayout cv_dssp, cv_qlbv, cv_qlkh, cv_qldh, cv_bqc, cv_ttch, cv_bctk, cv_csdk, cv_qltx;
     ImageView img_tttk, img_logout;
     TextView txt_tenadmin;
     Intent intent;
@@ -113,6 +114,15 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        cv_qltx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(view.getContext(), DriverActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         img_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,6 +155,7 @@ public class AdminActivity extends AppCompatActivity {
         cv_ttch = (LinearLayout) findViewById(R.id.cv_TTCH);
         cv_bctk = (LinearLayout) findViewById(R.id.cv_BCTK);
         cv_csdk = (LinearLayout) findViewById(R.id.cv_CSDK);
+        cv_qltx = (LinearLayout) findViewById(R.id.cv_quanlydriver);
         img_tttk = (ImageView) findViewById(R.id.img_TTTK);
         img_logout = findViewById(R.id.img_Logout);
         txt_tenadmin = findViewById(R.id.txt_TenAdmin);

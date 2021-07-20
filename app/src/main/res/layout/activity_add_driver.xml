@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Drivers.AddDriverActivity"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/img_Quaylai"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/ic_outline_keyboard_backspace_24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Đăng ký thông tin tài xế"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_usernameDK"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
+            android:hint="Tên đăng nhập"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:textColor="@color/gray"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edt_passwordDK"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:textColor="@color/gray"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/edt_repeatpass"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/edt_trang"
+            android:fontFamily="@font/nunito"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:textColor="@color/gray"
+            android:textSize="15dp" />
+
+
+
+        <Button
+            android:id="@+id/btn_Dangky"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_xanh"
+            android:text="Đăng ký"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:fontFamily="@font/nunito_bold" />
+    </LinearLayout>
+
+</LinearLayout>

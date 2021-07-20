@@ -110,7 +110,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(trangthai.contains("Đang xử lý")){
-                    String temp_trangthai = "Hoàn thành";
+                    String temp_trangthai = "Đang chuẩn bị đơn";
                     data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -137,7 +137,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
 
                         }
                     });
-
+                    huybo.setEnabled(false);
                 }
                 else Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã hoàn thành rồi!", Toast.LENGTH_SHORT).show();
             }
@@ -173,7 +173,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
                                                 noti.setNoidung("Đơn hàng " + receipt.getMadon()+ " của bạn đã bị hủy bỏ!");
                                                 noti.setUserid(receipt.getNguoidung());
                                                 data.child("Thông báo").child(noti.getTieude()).child(receipt.getMadon()).setValue(noti);
-
+                                                chapnhan.setEnabled(false);
                                                 startActivity(new Intent(DetailReceiptActivity.this, ListReceiptActivity.class));
                                             }
                                         }
