@@ -53,6 +53,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder>{
             public void onClick(View view) {
                 Context context = view.getContext();
                 Intent intent = new Intent(context, DetailProductActivity.class);
+                //truyền dữ liệu sang detail
                 intent.putExtra("DANHMUC",pr.getDanhmuc());
                 intent.putExtra("TENSP",pr.getTensp());
                 intent.putExtra("MASP",pr.getMasp());

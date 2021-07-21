@@ -59,6 +59,7 @@ public class DetailProductActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         String ngay = dateformat.format(calendar.getTime());
 
+        //lấy dữ liệu từ trang truyền qua
         Intent intent = getIntent();
         String dmuc = intent.getStringExtra("DANHMUC");
         String tenSP = intent.getStringExtra("TENSP");
@@ -108,7 +109,7 @@ public class DetailProductActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (pathchitiet != null) {
                             DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
-                            mData.child("SanPham").child(maSP).removeValue();
+                            mData.child("Sản phẩm").child(maSP).removeValue();
                             mData.child(dmuc).child(maSP).removeValue();
 
                             StorageReference ref = storageReference.child("Image").child(dmuc).child(tenSP + ".png");
@@ -182,8 +183,6 @@ public class DetailProductActivity extends AppCompatActivity {
                         DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
                         mData.child("Sản Phẩm").child(maSP).removeValue();
                         mData.child(dmuc).child(maSP).removeValue();
-
-
                         StorageReference ref = storageReference.child("Image").child(dmuc).child(tenSP + ".png");
                         ref.delete();
 

@@ -68,7 +68,6 @@ public class ListProductActivity extends AppCompatActivity {
                 public boolean onQueryTextSubmit(String s) {
                     return false;
                 }
-
                 @Override
                 public boolean onQueryTextChange(String s) {
                     search(s);

@@ -121,6 +121,22 @@ public class DetailReceiptActivity extends AppCompatActivity {
                                     data.child("Đơn hàng").child("Thông tin").child(md).setValue(re);
                                     Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã được phê duyệt!", Toast.LENGTH_SHORT).show();
 
+                                    data.child("Đơn hàng").child("Tổng tiền").addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            int temp_total = 0;
+                                            String temp_to = snapshot.child("Total").getValue().toString();
+                                            String temp_tongcong = tongcong.getText().toString();
+                                            temp_total = Integer.parseInt(temp_to) + Integer.parseInt(temp_tongcong.replace(".",""));
+                                            data.child("Đơn hàng").child("Tổng tiền").child("Total").setValue(temp_total);
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+
                                     ThongBao noti = new ThongBao();
                                     noti.setTieude("Thông báo xác nhận đơn hàng");
                                     noti.setNoidung("Đơn hàng " + re.getMadon()+ " của bạn đã được xác nhận!");
@@ -167,6 +183,22 @@ public class DetailReceiptActivity extends AppCompatActivity {
                                                 receipt.setTrangthai(temp_trangthai);
                                                 data.child("Đơn hàng").child("Thông tin").child(md).setValue(receipt);
                                                 Toast.makeText(DetailReceiptActivity.this, "Đơn hàng đã được hủy bỏ!", Toast.LENGTH_SHORT).show();
+
+                                                data.child("Đơn hàng").child("Tổng tiền").addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        int temp_total = 0;
+                                                        String temp_to = snapshot.child("Total").getValue().toString();
+                                                        String temp_tongcong = tongcong.getText().toString();
+                                                        temp_total = Integer.parseInt(temp_to) - Integer.parseInt(temp_tongcong.replace(".",""));
+                                                        data.child("Đơn hàng").child("Tổng tiền").child("Total").setValue(temp_total);
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
 
                                                 ThongBao noti = new ThongBao();
                                                 noti.setTieude("Thông báo xác nhận đơn hàng");

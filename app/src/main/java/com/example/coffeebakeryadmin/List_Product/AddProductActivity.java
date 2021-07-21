@@ -45,23 +45,26 @@ public class AddProductActivity extends AppCompatActivity {
     EditText tensp, masp, giaS, giaM, giaL, giaKM, mota;
     CheckBox sphammoi;
     Intent intent;
+    //khai bao storage
     FirebaseStorage storage;
     StorageReference storageReference;
-    public Uri path;
+    public Uri path; //mặc định không có giá trị
     private DatabaseReference mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
-
+        //khai bao storage
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        //khai bao dinh dang ngay theo kieu ngay-thang-nam
         SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
         Calendar calendar = Calendar.getInstance();
         String ngay = dateformat.format(calendar.getTime());
 
+        //khai bao firebase
         mData = FirebaseDatabase.getInstance().getReference();
         AnhXa();
         kiemtrathongtin();
@@ -153,6 +156,7 @@ public class AddProductActivity extends AppCompatActivity {
         luusp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //khai báo đối tượng Product
                 Product sp = new Product();
                 sp.danhmuc = danhmucsp.getText().toString().trim();
                 sp.tensp = tensp.getText().toString().trim();
@@ -170,14 +174,16 @@ public class AddProductActivity extends AppCompatActivity {
                 sp.luotyeuthich = 0;
                 sp.ngaydang = ngay;
 
+                //hiển thị thông báo
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setCancelable(true);
-                builder.setTitle("Thông báo");
-                builder.setMessage("Bạn có chắc muốn thêm sản phẩm này chứ ?");
+                builder.setTitle("Thông báo"); //tiêu đề
+                builder.setMessage("Bạn có chắc muốn thêm sản phẩm này chứ ?"); //nội dung
                 builder.setNegativeButton("Xác nhận", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (path != null) {
+                            //khai báo đường dẫn hình ảnh lưu trên storage
                             StorageReference ref = storageReference.child("Image").child(sp.getDanhmuc()).child(sp.getTensp() + ".png");
                             final ProgressDialog progressDialog = new ProgressDialog(AddProductActivity.this);
                             progressDialog.setTitle("Uploading...");
@@ -189,13 +195,16 @@ public class AddProductActivity extends AppCompatActivity {
                                     ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
+                                            //đường dẫn của hình ảnh trên storage
                                             sp.link = "" + uri.toString();
-                                            mData.child("Sản Phẩm").child(sp.masp).setValue(sp);
-                                            mData.child(sp.danhmuc).child(sp.masp).setValue(sp);
+                                            //lưu sản phẩm lên firebase
+                                            mData.child("Sản Phẩm").child(sp.masp).setValue(sp); //luu vao node san pham dung chung
+                                            mData.child(sp.danhmuc).child(sp.masp).setValue(sp); //luu vao node san pham danh muc
                                         }
                                     });
                                     progressDialog.dismiss();
 
+                                    //khai bao va tao node thông báo lên firebase
                                     ThongBao noti = new ThongBao();
                                     noti.setTieude("Thông báo sản phẩm mới!");
                                     noti.setNoidung("Thử ngay " + sp.getTensp() + " đi nào!");
