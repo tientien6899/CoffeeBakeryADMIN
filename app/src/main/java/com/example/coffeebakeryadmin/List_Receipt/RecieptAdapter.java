@@ -43,14 +43,24 @@ public class RecieptAdapter extends RecyclerView.Adapter<RecieptAdapter.Holder>{
         holder.nguoidung.setText(re.getHoten());
         holder.trangthai.setText(re.getTrangthai());
         String tt = re.getTrangthai();
-        if(tt.contains("Đang xử lý")){
-            holder.trangthai.setTextColor(Color.BLUE);
-        } else if(tt.contains("Đang chuẩn bị đơn")){
-            holder.trangthai.setTextColor(Color.GREEN);
-        }else if(tt.contains("Đơn hàng đang được giao")){
-            holder.trangthai.setTextColor(Color.YELLOW);
-        } else {
-            holder.trangthai.setTextColor(Color.RED);
+        switch (tt){
+            case "Hoàn thành":
+            case "Đang vận đơn":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.GREEN);
+                break;
+            case "Đang xử lý":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.BLUE);
+                break;
+            case "Đang chuẩn bị đơn":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.YELLOW);
+                break;
+            case "Hủy đơn":
+                holder.trangthai.setText(tt);
+                holder.trangthai.setTextColor(Color.RED);
+                break;
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

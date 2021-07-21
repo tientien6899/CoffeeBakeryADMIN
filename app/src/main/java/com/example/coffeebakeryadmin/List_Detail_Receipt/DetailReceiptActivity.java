@@ -48,27 +48,38 @@ public class DetailReceiptActivity extends AppCompatActivity {
         data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()){
-                    String str_madon = snap.child("madon").getValue().toString();
-                    if(str_madon.contains(md)){
-                        String temp_hoten = snap.child("hoten").getValue().toString();
-                        String temp_sdt = snap.child("sdt").getValue().toString();
-                        String temp_sonha = snap.child("sonha").getValue().toString();
-                        String temp_ngaydat = snap.child("ngaydat").getValue().toString();
-                        String temp_tamtinh = snap.child("tamtinh").getValue().toString();
-                        String temp_ship = snap.child("ship").getValue().toString();
-                        String temp_tongcong = snap.child("tongtien").getValue().toString();
-                        ten_kh.setText(temp_hoten);
-                        sdt_kh.setText(temp_sdt);
-                        diachi.setText(temp_sonha);
-                        madon.setText(md);
-                        ngaydat.setText(temp_ngaydat);
-                        thanhtien.setText(temp_tamtinh);
-                        phigh.setText(temp_ship);
-                        tongcong.setText(temp_tongcong);
+                if(snapshot.exists()){
+                    for(DataSnapshot snap : snapshot.getChildren()){
+                        Receipt re = snap.getValue(Receipt.class);
+                        if(re.getMadon().contains(md)){
+                            ten_kh.setText(re.getHoten());
+                            sdt_kh.setText(re.getSdt());
+                            diachi.setText(re.getSonha());
+                            madon.setText(md);
+                            ngaydat.setText(re.getNgaydat());
+                            thanhtien.setText(re.getTamtinh());
+                            phigh.setText(re.getShip());
+                            tongcong.setText(re.getTongtien());
+                            String tt = re.getTrangthai();
+                            switch (tt){
+                                case "Hoàn thành":
+                                case "Đang vận đơn":
+                                case "Hủy đơn":
+                                   chapnhan.setVisibility(View.GONE);
+                                   huybo.setVisibility(View.GONE);
+                                    break;
+                                case "Đang xử lý":
+                                    chapnhan.setVisibility(View.VISIBLE);
+                                    huybo.setVisibility(View.VISIBLE);
+                                    break;
+                                case "Đang chuẩn bị đơn":
+                                    chapnhan.setVisibility(View.GONE);
+                                    huybo.setVisibility(View.VISIBLE);
+                                    break;
+                            }
+                        }
                     }
                 }
-
             }
 
             @Override
@@ -111,7 +122,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(trangthai.contains("Đang xử lý")){
                     String temp_trangthai = "Đang chuẩn bị đơn";
-                    data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
+                    data.child("Đơn hàng").child("Thông tin").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for(DataSnapshot datasnap : snapshot.getChildren()){
@@ -173,7 +184,7 @@ public class DetailReceiptActivity extends AppCompatActivity {
                         .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                data.child("Đơn hàng").child("Thông tin").addValueEventListener(new ValueEventListener() {
+                                data.child("Đơn hàng").child("Thông tin").addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         String temp_trangthai = "Hủy đơn";
