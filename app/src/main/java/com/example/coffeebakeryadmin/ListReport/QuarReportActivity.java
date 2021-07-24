@@ -22,6 +22,7 @@ import com.anychart.enums.Anchor;
 import com.anychart.enums.HoverMode;
 import com.anychart.enums.Position;
 import com.anychart.enums.TooltipPositionMode;
+import com.example.coffeebakeryadmin.List_Receipt.Receipt;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,6 +48,11 @@ public class QuarReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quar_report);
         AnhXa();
+
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String quy = dateformat.format(calendar.getTime());
+        quyreport.setText(quy);
 
         quyreport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +83,11 @@ public class QuarReportActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int tong_q1 = 0, tong_q2 = 0, tong_q3 = 0, tong_q4 = 0;
                         for(DataSnapshot snap : snapshot.getChildren()){
-                            String str_ngaydat = snap.child("ngaydat").getValue().toString();
+                            Receipt re = snap.getValue(Receipt.class);
+                            String str_ngaydat = re.getNgaydat();
                             String temp_year = str_ngaydat.substring(6,10);
-                            if(temp_year.contains(quyreport.getText().toString())){
+                            String str_trangthai = re.getTrangthai();
+                            if(temp_year.contains(quyreport.getText().toString()) && str_trangthai.contains("Hoàn thành")){
                                 String temp_thang = str_ngaydat.substring(3,5);
                                 if(temp_thang.contains("01") || temp_thang.contains("02") || temp_thang.contains("03")){
                                     String str_tong = snap.child("tongtien").getValue().toString();

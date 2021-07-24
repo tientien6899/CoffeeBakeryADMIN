@@ -24,6 +24,7 @@ import com.anychart.enums.Anchor;
 import com.anychart.enums.HoverMode;
 import com.anychart.enums.Position;
 import com.anychart.enums.TooltipPositionMode;
+import com.example.coffeebakeryadmin.List_Receipt.Receipt;
 import com.example.coffeebakeryadmin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,7 +32,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class DailyReportActivity extends AppCompatActivity {
@@ -47,6 +50,10 @@ public class DailyReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_daily_report);
 
         AnhXa();
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar calendar = Calendar.getInstance();
+        String ngay = dateformat.format(calendar.getTime());
+        ngayreport.setText(ngay);
 
         ngayreport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +90,10 @@ public class DailyReportActivity extends AppCompatActivity {
                         int tong = 0;
                         String ngay = ngayreport.getText().toString();
                         for(DataSnapshot snap : snapshot.getChildren()){
-                            String string_ngaydat = snap.child("ngaydat").getValue().toString();
-                            if(string_ngaydat.contains(ngay)){
+                            Receipt re = snap.getValue(Receipt.class);
+                            String string_ngaydat = re.getNgaydat();
+                            String string_trangthai = re.getTrangthai();
+                            if(string_ngaydat.contains(ngay) && string_trangthai.contains("Hoàn thành")){
                                 String string_tongtien = snap.child("tongtien").getValue().toString();
                                 int temp_tong = Integer.parseInt(string_tongtien.replace(".",""));
                                 tong += temp_tong;
